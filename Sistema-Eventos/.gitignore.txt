@@ -1,0 +1,13 @@
+# Visual Studio / .NET
+.vs/
+bin/
+obj/
+[Bb]uild/
+*.user
+*.rsuser
+*.suo
+*.cache
+*.log
+
+# Dependencias típicas
+node_modules/

@@ -1,0 +1,311 @@
+[
+  {
+    "ContainingType": "Sistema_Eventos.Controllers.AuthController",
+    "Method": "Login",
+    "RelativePath": "api/v1/auth/login",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "Sistema_Eventos.DTOs.LoginDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Sistema_Eventos.Controllers.AuthController",
+    "Method": "Register",
+    "RelativePath": "api/v1/auth/register",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "Sistema_Eventos.DTOs.RegisterDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Sistema_Eventos.Controllers.CategoriesController",
+    "Method": "GetAll",
+    "RelativePath": "api/v1/categories",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Sistema_Eventos.Controllers.CategoriesController",
+    "Method": "Create",
+    "RelativePath": "api/v1/categories",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "Sistema_Eventos.DTOs.CreateCategoryDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Sistema_Eventos.Controllers.CategoriesController",
+    "Method": "GetById",
+    "RelativePath": "api/v1/categories/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Sistema_Eventos.Controllers.CategoriesController",
+    "Method": "Update",
+    "RelativePath": "api/v1/categories/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      },
+      {
+        "Name": "dto",
+        "Type": "Sistema_Eventos.DTOs.CreateCategoryDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Sistema_Eventos.Controllers.CategoriesController",
+    "Method": "Delete",
+    "RelativePath": "api/v1/categories/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Sistema_Eventos.Controllers.EventsController",
+    "Method": "GetAll",
+    "RelativePath": "api/v1/events",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Sistema_Eventos.Controllers.EventsController",
+    "Method": "Create",
+    "RelativePath": "api/v1/events",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "Sistema_Eventos.DTOs.CreateEventDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Sistema_Eventos.Controllers.ReservationsController",
+    "Method": "GetEventReservations",
+    "RelativePath": "api/v1/events/{eventId}/reservations",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "eventId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Sistema_Eventos.Controllers.EventsController",
+    "Method": "GetById",
+    "RelativePath": "api/v1/events/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Sistema_Eventos.Controllers.EventsController",
+    "Method": "Update",
+    "RelativePath": "api/v1/events/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      },
+      {
+        "Name": "dto",
+        "Type": "Sistema_Eventos.DTOs.UpdateEventDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Sistema_Eventos.Controllers.EventsController",
+    "Method": "Delete",
+    "RelativePath": "api/v1/events/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Sistema_Eventos.Controllers.EventsController",
+    "Method": "GetMyEvents",
+    "RelativePath": "api/v1/events/my-events",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Sistema_Eventos.Controllers.NotificationsController",
+    "Method": "GetMyNotifications",
+    "RelativePath": "api/v1/notifications",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Sistema_Eventos.Controllers.ReportsController",
+    "Method": "GetDashboard",
+    "RelativePath": "api/v1/reports/dashboard",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Sistema_Eventos.Controllers.ReportsController",
+    "Method": "GetEventsStats",
+    "RelativePath": "api/v1/reports/events-stats",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Sistema_Eventos.Controllers.ReservationsController",
+    "Method": "Create",
+    "RelativePath": "api/v1/reservations",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "Sistema_Eventos.DTOs.CreateReservationDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Sistema_Eventos.Controllers.ReservationsController",
+    "Method": "Cancel",
+    "RelativePath": "api/v1/reservations/{id}/cancel",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Sistema_Eventos.Controllers.ReservationsController",
+    "Method": "GetMyReservations",
+    "RelativePath": "api/v1/reservations/my-reservations",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Sistema_Eventos.Controllers.WeatherForecastController",
+    "Method": "Get",
+    "RelativePath": "WeatherForecast",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[Sistema_Eventos.WeatherForecast, Sistema-Eventos, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ],
+    "EndpointName": "GetWeatherForecast"
+  }
+]
