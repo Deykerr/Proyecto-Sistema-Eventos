@@ -207,6 +207,22 @@
   },
   {
     "ContainingType": "Sistema_Eventos.Controllers.EventsController",
+    "Method": "GetEventWeather",
+    "RelativePath": "api/v1/events/{id}/weather",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Sistema_Eventos.Controllers.EventsController",
     "Method": "GetMyEvents",
     "RelativePath": "api/v1/events/my-events",
     "HttpMethod": "GET",
@@ -223,6 +239,38 @@
     "IsController": true,
     "Order": 0,
     "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Sistema_Eventos.Controllers.PaymentsController",
+    "Method": "CreatePaymentIntent",
+    "RelativePath": "api/v1/payments/create-intent",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "Sistema_Eventos.DTOs.PaymentIntentDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Sistema_Eventos.Controllers.PaymentsController",
+    "Method": "Webhook",
+    "RelativePath": "api/v1/payments/webhook",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "Sistema_Eventos.DTOs.WebhookDto",
+        "IsRequired": true
+      }
+    ],
     "ReturnTypes": []
   },
   {
@@ -285,6 +333,32 @@
     "IsController": true,
     "Order": 0,
     "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Sistema_Eventos.Controllers.UsersController",
+    "Method": "GetProfile",
+    "RelativePath": "api/v1/users/profile",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Sistema_Eventos.Controllers.UsersController",
+    "Method": "UpdateProfile",
+    "RelativePath": "api/v1/users/profile",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "Sistema_Eventos.DTOs.UpdateProfileDto",
+        "IsRequired": true
+      }
+    ],
     "ReturnTypes": []
   },
   {

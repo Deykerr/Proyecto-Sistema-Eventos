@@ -230,3 +230,4 @@ C:\Users\LOQ\Documents\6C\ServiciosWeb\Sistema-Eventos-Proyecto\Sistema-Eventos\
 C:\Users\LOQ\Documents\6C\ServiciosWeb\Sistema-Eventos-Proyecto\Sistema-Eventos\obj\Debug\net8.0\Sistema-Eventos.pdb
 C:\Users\LOQ\Documents\6C\ServiciosWeb\Sistema-Eventos-Proyecto\Sistema-Eventos\obj\Debug\net8.0\Sistema-Eventos.genruntimeconfig.cache
 C:\Users\LOQ\Documents\6C\ServiciosWeb\Sistema-Eventos-Proyecto\Sistema-Eventos\obj\Debug\net8.0\ref\Sistema-Eventos.dll
+C:\Users\LOQ\Documents\6C\ServiciosWeb\Sistema-Eventos-Proyecto\Sistema-Eventos\obj\Debug\net8.0\Sistema-Eventos.sourcelink.json

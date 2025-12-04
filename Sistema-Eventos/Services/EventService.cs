@@ -9,11 +9,13 @@ namespace Sistema_Eventos.Services
     {
         private readonly IEventRepository _eventRepository;
         private readonly IUserRepository _userRepository; // Para validar si usuario existe, opcional
+        private readonly IGeoService _geoService;
 
-        public EventService(IEventRepository eventRepository, IUserRepository userRepository)
+        public EventService(IEventRepository eventRepository, IUserRepository userRepository, IGeoService geoService)
         {
             _eventRepository = eventRepository;
             _userRepository = userRepository;
+            _geoService = geoService;
         }
 
         public async Task<List<EventResponseDto>> GetAllEventsAsync()
@@ -40,6 +42,21 @@ namespace Sistema_Eventos.Services
             // Validaciones de negocio
             if (dto.EndDate < dto.StartDate)
                 throw new ArgumentException("La fecha de fin no puede ser anterior a la de inicio.");
+
+            // INTEGRACIÓN GEO: Si no mandan coordenadas, las buscamos por la dirección
+            if (dto.Latitude == 0 && dto.Longitude == 0 && !string.IsNullOrEmpty(dto.Location))
+            {
+                var coords = await _geoService.GetCoordinatesAsync(dto.Location);
+                if (coords != null)
+                {
+                    // Parseamos con cultura invariante (puntos vs comas)
+                    if (decimal.TryParse(coords.Lat, System.Globalization.NumberStyles.Any, System.Globalization.CultureInfo.InvariantCulture, out decimal lat))
+                        dto.Latitude = lat;
+
+                    if (decimal.TryParse(coords.Lon, System.Globalization.NumberStyles.Any, System.Globalization.CultureInfo.InvariantCulture, out decimal lon))
+                        dto.Longitude = lon;
+                }
+            }
 
             var newEvent = new Event
             {

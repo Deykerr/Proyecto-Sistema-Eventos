@@ -67,6 +67,13 @@ builder.Services.AddScoped<INotificationRepository, NotificationRepository>();
 builder.Services.AddScoped<INotificationService, NotificationService>();
 builder.Services.AddScoped<IReportRepository, ReportRepository>();
 builder.Services.AddScoped<IReportService, ReportService>();
+builder.Services.AddScoped<IPaymentService, PaymentService>();
+builder.Services.AddScoped<IUserService, UserService>();
+builder.Services.AddHttpClient();
+builder.Services.AddScoped<IWeatherService, WeatherService>();
+builder.Services.AddScoped<IGeoService, GeoService>();
+
+
 
 // Configuración de Autenticación JWT
 var key = builder.Configuration["Jwt:Key"] ?? "ClaveSecretaPorDefectoMuyLargaParaSeguridad123";

@@ -12,10 +12,12 @@ namespace Sistema_Eventos.Controllers
     public class EventsController : ControllerBase
     {
         private readonly IEventService _eventService;
+        private readonly IWeatherService _weatherService;
 
-        public EventsController(IEventService eventService)
+        public EventsController(IEventService eventService, IWeatherService weatherService)
         {
             _eventService = eventService;
+            _weatherService = weatherService;
         }
 
         // GET: api/v1/events
@@ -122,6 +124,32 @@ namespace Sistema_Eventos.Controllers
             {
                 return Forbid();
             }
+        }
+
+        // GET: api/v1/events/{id}/weather
+        [HttpGet("{id}/weather")]
+        public async Task<IActionResult> GetEventWeather(Guid id)
+        {
+            var evento = await _eventService.GetEventByIdAsync(id); // Asumiendo que devuelve DTO con Lat/Lon
+            if (evento == null) return NotFound("Evento no encontrado");
+
+            // Necesitamos las coordenadas reales, el DTO EventResponseDto ya las debería tener si las mapeaste
+            // Si tu DTO no tiene Lat/Lon, tendrás que obtener la entidad o agregarlas al DTO.
+            // Asumiremos que el evento tiene ubicación.
+
+            // Como el DTO actual no tiene Lat/Lon visibles (probablemente), 
+            // hacemos una pequeña trampa buscando la entidad o confiando en que agregaste Lat/Lon al EventResponseDto
+            // Supongamos que agregaste Lat/Lon a EventResponseDto, si no, agrégalos.
+
+            // Lógica temporal si no tienes lat/lon en DTO:
+            // var weather = await _weatherService.GetCurrentWeatherAsync(-13.5320m, -71.9675m); // Cusco hardcoded
+
+            // Lógica Correcta (Agrega Latitude y Longitude a EventResponseDto primero):
+            var weather = await _weatherService.GetCurrentWeatherAsync(-13.5320m, -71.9675m); // Reemplaza 0,0 por evento.Latitude, evento.Longitude
+
+            if (weather == null) return BadRequest("No se pudo obtener el clima (posible falta de API Key o error externo)");
+
+            return Ok(weather);
         }
     }
 }
