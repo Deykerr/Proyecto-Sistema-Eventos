@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿//Sistema-Eventos\DTOs\UserDtos.cs
+using System.ComponentModel.DataAnnotations;
 
 namespace Sistema_Eventos.DTOs
 {

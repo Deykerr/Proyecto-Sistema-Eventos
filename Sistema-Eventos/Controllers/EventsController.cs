@@ -130,24 +130,21 @@ namespace Sistema_Eventos.Controllers
         [HttpGet("{id}/weather")]
         public async Task<IActionResult> GetEventWeather(Guid id)
         {
-            var evento = await _eventService.GetEventByIdAsync(id); // Asumiendo que devuelve DTO con Lat/Lon
-            if (evento == null) return NotFound("Evento no encontrado");
+            // 1. Obtenemos el evento (que ahora incluye Lat y Lon en el DTO)
+            var eventoDto = await _eventService.GetEventByIdAsync(id);
 
-            // Necesitamos las coordenadas reales, el DTO EventResponseDto ya las debería tener si las mapeaste
-            // Si tu DTO no tiene Lat/Lon, tendrás que obtener la entidad o agregarlas al DTO.
-            // Asumiremos que el evento tiene ubicación.
+            if (eventoDto == null) return NotFound("Evento no encontrado");
 
-            // Como el DTO actual no tiene Lat/Lon visibles (probablemente), 
-            // hacemos una pequeña trampa buscando la entidad o confiando en que agregaste Lat/Lon al EventResponseDto
-            // Supongamos que agregaste Lat/Lon a EventResponseDto, si no, agrégalos.
+            // 2. Validación simple: Si el evento no tiene coordenadas (ej. es 0,0), no podemos pedir clima
+            if (eventoDto.Latitude == 0 && eventoDto.Longitude == 0)
+            {
+                return BadRequest("Este evento no tiene coordenadas registradas para consultar el clima.");
+            }
 
-            // Lógica temporal si no tienes lat/lon en DTO:
-            // var weather = await _weatherService.GetCurrentWeatherAsync(-13.5320m, -71.9675m); // Cusco hardcoded
+            // 3. Usamos las coordenadas REALES del evento
+            var weather = await _weatherService.GetCurrentWeatherAsync(eventoDto.Latitude, eventoDto.Longitude);
 
-            // Lógica Correcta (Agrega Latitude y Longitude a EventResponseDto primero):
-            var weather = await _weatherService.GetCurrentWeatherAsync(-13.5320m, -71.9675m); // Reemplaza 0,0 por evento.Latitude, evento.Longitude
-
-            if (weather == null) return BadRequest("No se pudo obtener el clima (posible falta de API Key o error externo)");
+            if (weather == null) return BadRequest("No se pudo obtener el clima del servicio externo.");
 
             return Ok(weather);
         }

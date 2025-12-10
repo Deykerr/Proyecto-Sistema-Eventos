@@ -10,5 +10,8 @@ namespace Sistema_Eventos.Services.Interfaces
 
         // Devuelve el objeto con el Token o null si falla
         Task<AuthResponseDto?> LoginAsync(LoginDto request);
+
+        Task ForgotPasswordAsync(ForgotPasswordDto request); // Retorna un mensaje o el token simulado
+        Task<bool> ResetPasswordAsync(ResetPasswordDto request);
     }
 }

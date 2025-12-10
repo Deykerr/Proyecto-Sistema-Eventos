@@ -1,6 +1,22 @@
 [
   {
     "ContainingType": "Sistema_Eventos.Controllers.AuthController",
+    "Method": "ForgotPassword",
+    "RelativePath": "api/v1/auth/forgot-password",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "Sistema_Eventos.DTOs.ForgotPasswordDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Sistema_Eventos.Controllers.AuthController",
     "Method": "Login",
     "RelativePath": "api/v1/auth/login",
     "HttpMethod": "POST",
@@ -26,6 +42,22 @@
       {
         "Name": "request",
         "Type": "Sistema_Eventos.DTOs.RegisterDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Sistema_Eventos.Controllers.AuthController",
+    "Method": "ResetPassword",
+    "RelativePath": "api/v1/auth/reset-password",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "Sistema_Eventos.DTOs.ResetPasswordDto",
         "IsRequired": true
       }
     ],

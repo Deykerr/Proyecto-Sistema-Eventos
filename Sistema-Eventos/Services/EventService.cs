@@ -64,8 +64,9 @@ namespace Sistema_Eventos.Services
                 Description = dto.Description,
                 CategoryId = dto.CategoryId, // Asumimos que el ID existe, idealmente validar
                 OrganizerId = organizerId,
-                StartDate = dto.StartDate,
-                EndDate = dto.EndDate,
+                // --- CORRECCIÓN AQUÍ: Convertir a UTC ---
+                StartDate = dto.StartDate.ToUniversalTime(),
+                EndDate = dto.EndDate.ToUniversalTime(),
                 Location = dto.Location,
                 Latitude = dto.Latitude,
                 Longitude = dto.Longitude,
@@ -73,7 +74,9 @@ namespace Sistema_Eventos.Services
                 AvailableSlots = dto.Capacity, // Al inicio, cupos = capacidad
                 Price = dto.Price,
                 IsPublic = dto.IsPublic,
-                Status = EventStatus.Draft // Por defecto borrador
+                Status = EventStatus.Draft, // Por defecto borrador
+                CreatedAt = DateTime.UtcNow,
+                UpdatedAt = DateTime.UtcNow
             };
 
             await _eventRepository.AddEventAsync(newEvent);
@@ -96,8 +99,8 @@ namespace Sistema_Eventos.Services
             evento.Title = dto.Title;
             evento.Description = dto.Description;
             evento.CategoryId = dto.CategoryId;
-            evento.StartDate = dto.StartDate;
-            evento.EndDate = dto.EndDate;
+            evento.StartDate = dto.StartDate.ToUniversalTime();
+            evento.EndDate = dto.EndDate.ToUniversalTime();
             evento.Location = dto.Location;
             evento.Latitude = dto.Latitude;
             evento.Longitude = dto.Longitude;
@@ -148,7 +151,9 @@ namespace Sistema_Eventos.Services
                 IsPublic = evt.IsPublic,
                 Status = evt.Status.ToString(),
                 OrganizerName = evt.Organizer != null ? $"{evt.Organizer.FirstName} {evt.Organizer.LastName}" : "Desconocido",
-                CategoryName = evt.Category != null ? evt.Category.Name : "Sin Categoría"
+                CategoryName = evt.Category != null ? evt.Category.Name : "Sin Categoría",
+                Latitude = evt.Latitude,   // <--- Agrega esto
+                Longitude = evt.Longitude,
             };
         }
     }

@@ -55,5 +55,33 @@ namespace Sistema_Eventos.Controllers
 
             return Ok(result);
         }
+
+        // POST: api/v1/auth/forgot-password
+        [HttpPost("forgot-password")]
+        public async Task<IActionResult> ForgotPassword([FromBody] ForgotPasswordDto request)
+        {
+            if (!ModelState.IsValid) return BadRequest(ModelState);
+
+            // Fíjate que aquí ya NO asignamos el resultado a una variable (var result = ...)
+            await _authService.ForgotPasswordAsync(request);
+
+            return Ok(new { message = "Si el correo está registrado, recibirás un token de recuperación." });
+        }
+
+        // POST: api/v1/auth/reset-password
+        [HttpPost("reset-password")]
+        public async Task<IActionResult> ResetPassword([FromBody] ResetPasswordDto request)
+        {
+            if (!ModelState.IsValid) return BadRequest(ModelState);
+
+            var result = await _authService.ResetPasswordAsync(request);
+
+            if (!result)
+            {
+                return BadRequest(new { message = "Token inválido, expirado o error al actualizar." });
+            }
+
+            return Ok(new { message = "Contraseña actualizada correctamente. Ya puedes iniciar sesión." });
+        }
     }
 }

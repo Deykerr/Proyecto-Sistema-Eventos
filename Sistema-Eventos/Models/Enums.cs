@@ -1,3 +1,4 @@
+//Sistema-Eventos\Models\Enums.cs
 namespace Sistema_Eventos.Models
 {
     public enum UserRole

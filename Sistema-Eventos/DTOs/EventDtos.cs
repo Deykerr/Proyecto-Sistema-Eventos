@@ -56,8 +56,8 @@ namespace Sistema_Eventos.DTOs
         public DateTime StartDate { get; set; }
         public DateTime EndDate { get; set; }
         public string Location { get; set; } = string.Empty;
-        //public decimal Latitude { get; set; }
-        //public decimal Longitude { get; set; }
+        public decimal Latitude { get; set; }
+        public decimal Longitude { get; set; }
         public int Capacity { get; set; }
         public int AvailableSlots { get; set; }
         public decimal Price { get; set; }

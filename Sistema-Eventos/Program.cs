@@ -72,9 +72,19 @@ builder.Services.AddScoped<IUserService, UserService>();
 builder.Services.AddHttpClient();
 builder.Services.AddScoped<IWeatherService, WeatherService>();
 builder.Services.AddScoped<IGeoService, GeoService>();
+builder.Services.AddScoped<IUserRepository, UserRepository>();
+builder.Services.AddScoped<IAuthService, AuthService>();
+builder.Services.AddScoped<INotificationRepository, NotificationRepository>();
 
-
-
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("NuevaPolitica", app =>
+    {
+        app.AllowAnyOrigin()   // En producción cambiar por .WithOrigins("http://localhost:4200")
+           .AllowAnyHeader()
+           .AllowAnyMethod();
+    });
+});
 // Configuración de Autenticación JWT
 var key = builder.Configuration["Jwt:Key"] ?? "ClaveSecretaPorDefectoMuyLargaParaSeguridad123";
 
@@ -107,6 +117,8 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+app.UseCors("NuevaPolitica");
 
 // El orden es CRÍTICO aquí:
 app.UseAuthentication(); // 1. ¿Quién eres?
