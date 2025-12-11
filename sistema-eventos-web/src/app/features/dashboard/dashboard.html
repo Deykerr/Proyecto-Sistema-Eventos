@@ -1,0 +1,92 @@
+<div class="container mt-5 mb-5">
+  <div class="d-flex justify-content-between align-items-center mb-4">
+    <h2 class="fw-bold text-primary">Panel de Control</h2>
+    <span class="badge bg-secondary">Organizador</span>
+  </div>
+
+  <div *ngIf="isLoading" class="text-center py-5">
+    <div class="spinner-border text-primary" role="status"><span class="visually-hidden">Cargando...</span></div>
+  </div>
+
+  <div *ngIf="!isLoading">
+    
+    <div class="row g-4 mb-5" *ngIf="stats">
+      <div class="col-md-3">
+        <div class="card shadow-sm border-start border-success border-4 h-100">
+          <div class="card-body">
+            <h6 class="text-muted text-uppercase mb-2">Ingresos Totales</h6>
+            <h3 class="fw-bold text-success">{{ stats.totalRevenue | currency:'PEN':'S/ ' }}</h3>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-3">
+        <div class="card shadow-sm border-start border-primary border-4 h-100">
+          <div class="card-body">
+            <h6 class="text-muted text-uppercase mb-2">Reservas Totales</h6>
+            <h3 class="fw-bold text-primary">{{ stats.totalReservations }}</h3>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-3">
+        <div class="card shadow-sm border-start border-warning border-4 h-100">
+          <div class="card-body">
+            <h6 class="text-muted text-uppercase mb-2">Eventos Activos</h6>
+            <h3 class="fw-bold text-warning">{{ stats.activeEvents }}</h3>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-3">
+        <div class="card shadow-sm border-start border-info border-4 h-100">
+          <div class="card-body">
+            <h6 class="text-muted text-uppercase mb-2">Total Histórico</h6>
+            <h3 class="fw-bold text-info">{{ stats.totalEvents }}</h3>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card shadow-sm">
+      <div class="card-header bg-white py-3">
+        <h5 class="mb-0 fw-bold">Rendimiento por Evento</h5>
+      </div>
+      <div class="table-responsive">
+        <table class="table table-hover align-middle mb-0">
+          <thead class="table-light">
+            <tr>
+              <th>Evento</th>
+              <th class="text-center">Reservas</th>
+              <th class="text-center">Ocupación</th>
+              <th class="text-end">Ingresos</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let item of eventStats">
+              <td class="fw-bold">{{ item.eventTitle }}</td>
+              <td class="text-center">{{ item.totalReservations }}</td>
+              <td class="text-center">
+                <div class="d-flex align-items-center justify-content-center" style="gap: 10px;">
+                  <span class="small">{{ item.occupancyRate * 100 | number:'1.0-0' }}%</span>
+                  <div class="progress" style="width: 80px; height: 6px;">
+                    <div class="progress-bar" 
+                         [ngClass]="{'bg-success': item.occupancyRate < 0.8, 'bg-warning': item.occupancyRate >= 0.8, 'bg-danger': item.occupancyRate >= 0.95}"
+                         role="progressbar" 
+                         [style.width.%]="item.occupancyRate * 100">
+                    </div>
+                  </div>
+                </div>
+              </td>
+              <td class="text-end text-success fw-bold">{{ item.revenue | currency:'PEN':'S/ ' }}</td>
+            </tr>
+            <tr *ngIf="eventStats.length === 0">
+              <td colspan="4" class="text-center py-4 text-muted">No hay estadísticas disponibles.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+  </div>
+</div>

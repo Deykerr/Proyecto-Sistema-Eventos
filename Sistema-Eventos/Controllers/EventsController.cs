@@ -148,5 +148,30 @@ namespace Sistema_Eventos.Controllers
 
             return Ok(weather);
         }
+
+        // POST: api/v1/events/{id}/publish
+        [HttpPost("{id}/publish")]
+        [Authorize(Roles = "Organizer,Admin")]
+        public async Task<IActionResult> Publish(Guid id)
+        {
+            var userIdClaim = User.FindFirst(ClaimTypes.NameIdentifier);
+            var roleClaim = User.FindFirst(ClaimTypes.Role);
+            if (userIdClaim == null) return Unauthorized();
+
+            var userId = Guid.Parse(userIdClaim.Value);
+            var isAdmin = roleClaim?.Value == "Admin";
+
+            try
+            {
+                var success = await _eventService.PublishEventAsync(id, userId, isAdmin);
+                if (!success) return NotFound();
+
+                return Ok(new { message = "Evento publicado correctamente." });
+            }
+            catch (UnauthorizedAccessException)
+            {
+                return Forbid();
+            }
+        }
     }
 }

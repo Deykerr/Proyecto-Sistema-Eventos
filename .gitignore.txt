@@ -1,0 +1,21 @@
+
+# Visual Studio
+.vs/
+
+# Build outputs
+bin/
+obj/
+
+# User-specific settings
+*.user
+*.suo
+
+# Logs y temporales
+*.log
+*.tmp
+
+# Rider/JetBrains (por si acaso)
+.idea/
+
+# VS Code (opcionales; normalmente sí conviene versionar settings)
+.vscode/

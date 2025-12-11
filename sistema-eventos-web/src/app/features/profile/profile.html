@@ -1,0 +1,73 @@
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-md-8 col-lg-6">
+      
+      <div class="card shadow">
+        <div class="card-header bg-primary text-white d-flex justify-content-between align-items-center">
+          <h4 class="mb-0"><i class="bi bi-person-circle"></i> Mi Perfil</h4>
+          <span class="badge bg-light text-primary" *ngIf="profile">{{ profile.role }}</span>
+        </div>
+        
+        <div class="card-body p-4">
+          
+          <div *ngIf="isLoading" class="text-center py-4">
+            <div class="spinner-border text-primary" role="status"></div>
+          </div>
+
+          <div *ngIf="!isLoading && profile">
+            
+            <div *ngIf="!isEditing">
+              <div class="text-center mb-4">
+                <div class="bg-light rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style="width: 100px; height: 100px;">
+                  <i class="bi bi-person-fill text-secondary" style="font-size: 3rem;"></i>
+                </div>
+                <h3 class="fw-bold">{{ profile.firstName }} {{ profile.lastName }}</h3>
+                <p class="text-muted">{{ profile.email }}</p>
+              </div>
+
+              <div class="list-group list-group-flush mb-4">
+                <div class="list-group-item d-flex justify-content-between">
+                  <span class="fw-bold">Miembro desde:</span>
+                  <span>{{ profile.createdAt | date:'longDate' }}</span>
+                </div>
+                <div class="list-group-item d-flex justify-content-between">
+                  <span class="fw-bold">ID de Usuario:</span>
+                  <span class="text-muted small text-truncate" style="max-width: 150px;">{{ profile.id }}</span>
+                </div>
+              </div>
+
+              <button class="btn btn-outline-primary w-100" (click)="toggleEdit()">
+                <i class="bi bi-pencil-square"></i> Editar Información
+              </button>
+            </div>
+
+            <form *ngIf="isEditing" [formGroup]="form" (ngSubmit)="onSubmit()">
+              <h5 class="mb-3 text-secondary">Editar Datos Personales</h5>
+              
+              <div class="mb-3">
+                <label class="form-label">Nombre</label>
+                <input type="text" class="form-control" formControlName="firstName">
+              </div>
+
+              <div class="mb-3">
+                <label class="form-label">Apellido</label>
+                <input type="text" class="form-control" formControlName="lastName">
+              </div>
+
+              <div class="alert alert-info small">
+                <i class="bi bi-info-circle"></i> El correo electrónico no se puede cambiar.
+              </div>
+
+              <div class="d-flex gap-2">
+                <button type="button" class="btn btn-secondary flex-grow-1" (click)="toggleEdit()">Cancelar</button>
+                <button type="submit" class="btn btn-success flex-grow-1" [disabled]="form.invalid">Guardar Cambios</button>
+              </div>
+            </form>
+
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

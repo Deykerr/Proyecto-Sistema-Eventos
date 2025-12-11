@@ -156,5 +156,22 @@ namespace Sistema_Eventos.Services
                 Longitude = evt.Longitude,
             };
         }
+
+        public async Task<bool> PublishEventAsync(Guid eventId, Guid userId, bool isAdmin)
+        {
+            var evento = await _eventRepository.GetEventByIdAsync(eventId);
+            if (evento == null) return false;
+
+            // Solo el dueño o el admin pueden publicar
+            if (evento.OrganizerId != userId && !isAdmin)
+                throw new UnauthorizedAccessException("No tienes permiso para publicar este evento.");
+
+            // Cambiamos el estado
+            evento.Status = EventStatus.Published;
+            evento.UpdatedAt = DateTime.UtcNow;
+
+            await _eventRepository.UpdateEventAsync(evento);
+            return true;
+        }
     }
 }

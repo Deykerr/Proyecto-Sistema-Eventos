@@ -1,0 +1,106 @@
+<div class="container mt-5 mb-5">
+  
+  <div *ngIf="isLoading" class="text-center py-5">
+    <div class="spinner-border text-primary" role="status">
+      <span class="visually-hidden">Cargando...</span>
+    </div>
+  </div>
+
+  <div *ngIf="!isLoading && event" class="row">
+    
+    <div class="col-lg-8">
+      <div class="card shadow-sm mb-4">
+        <div class="bg-dark text-white p-5 d-flex align-items-end" style="height: 250px; background: linear-gradient(to bottom, transparent, rgba(0,0,0,0.8));">
+          <div>
+            <span class="badge bg-warning text-dark mb-2">{{ event.categoryName }}</span>
+            <h1 class="fw-bold">{{ event.title }}</h1>
+            <p class="mb-0"><i class="bi bi-geo-alt-fill"></i> {{ event.location }}</p>
+          </div>
+        </div>
+
+        <div class="card-body">
+          <h4 class="text-primary mt-3">Descripción</h4>
+          <p class="lead" style="font-size: 1rem;">{{ event.description }}</p>
+
+          <hr>
+
+          <div class="row mt-4">
+            <div class="col-md-6 mb-3">
+              <h5 class="fw-bold"><i class="bi bi-calendar-event"></i> Inicio</h5>
+              <p>{{ event.startDate | date:'fullDate' }} <br> {{ event.startDate | date:'shortTime' }}</p>
+            </div>
+            <div class="col-md-6 mb-3">
+              <h5 class="fw-bold"><i class="bi bi-calendar-check"></i> Fin</h5>
+              <p>{{ event.endDate | date:'fullDate' }} <br> {{ event.endDate | date:'shortTime' }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-lg-4">
+      
+      <div class="card shadow-sm mb-4 border-primary">
+        <div class="card-body text-center">
+          <h3 class="text-success fw-bold mb-0">{{ event.price | currency:'PEN':'S/ ' }}</h3>
+          <p class="text-muted small">por persona</p>
+          
+          <div class="d-flex justify-content-between mb-3 px-4">
+            <span><i class="bi bi-people-fill"></i> Capacidad:</span>
+            <strong>{{ event.capacity }}</strong>
+          </div>
+          
+          <div class="d-flex justify-content-between mb-3 px-4">
+            <span><i class="bi bi-ticket-perforated"></i> Disponibles:</span>
+            <strong [class.text-danger]="event.availableSlots < 10">{{ event.availableSlots }}</strong>
+          </div>
+
+          <button class="btn btn-primary w-100 py-2 fw-bold" 
+                  (click)="onReserve()"
+                  [disabled]="event.availableSlots === 0">
+            {{ event.availableSlots > 0 ? 'Reservar Ahora' : 'Agotado' }}
+          </button>
+        </div>
+      </div>
+
+      <div class="card shadow-sm mb-4 bg-info bg-opacity-10" *ngIf="weather">
+        <div class="card-body">
+          <h5 class="card-title text-info-emphasis"><i class="bi bi-cloud-sun"></i> Clima en {{ weather.name }}</h5>
+          <div class="d-flex align-items-center justify-content-between mt-3">
+            <div>
+              <h2 class="mb-0">{{ weather.main.temp }}°C</h2>
+              <p class="mb-0 text-capitalize">{{ weather.weather[0].description }}</p>
+            </div>
+            <div class="text-end">
+              <p class="mb-0 small"><i class="bi bi-droplet"></i> Humedad: {{ weather.main.humidity }}%</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <a [href]="mapUrl" target="_blank" class="btn btn-outline-secondary w-100 mb-3">
+        <i class="bi bi-map"></i> Ver ubicación en Google Maps
+      </a>
+
+      <a routerLink="/events" class="btn btn-link w-100 text-decoration-none text-muted">
+        <i class="bi bi-arrow-left"></i> Volver a la lista
+      </a>
+
+      <div *ngIf="event.status === 'Draft' && (authService.getUserRole() === 'Organizer' || authService.getUserRole() === 'Admin')" class="mb-3">
+  <div class="alert alert-warning text-center mb-2">
+    <small><i class="bi bi-exclamation-triangle"></i> Este evento está en <strong>Borrador</strong> y no acepta reservas.</small>
+  </div>
+  <button class="btn btn-success w-100" (click)="publish()">
+    <i class="bi bi-megaphone"></i> Publicar Ahora
+  </button>
+</div>
+
+<button class="btn btn-primary w-100 py-2 fw-bold" 
+        (click)="onReserve()"
+        [disabled]="event.availableSlots === 0 || event.status === 'Draft'">
+  {{ event.status === 'Draft' ? 'No Disponible (Borrador)' : (event.availableSlots > 0 ? 'Reservar Ahora' : 'Agotado') }}
+</button>
+
+    </div>
+  </div>
+</div>

@@ -1,0 +1,27 @@
+<div class="container mt-5">
+  <h2 class="mb-4">Notificaciones</h2>
+
+  <div *ngIf="isLoading" class="text-center py-5">
+    <div class="spinner-border text-primary" role="status"></div>
+  </div>
+
+  <div *ngIf="!isLoading && notifications.length === 0" class="alert alert-secondary text-center">
+    No tienes notificaciones recientes.
+  </div>
+
+  <div class="list-group shadow-sm" *ngIf="!isLoading && notifications.length > 0">
+    <div *ngFor="let notif of notifications" class="list-group-item list-group-item-action">
+      <div class="d-flex w-100 justify-content-between">
+        <h5 class="mb-1 fw-bold text-primary">{{ notif.subject }}</h5>
+        <small class="text-muted">{{ notif.createdAt | date:'short' }}</small>
+      </div>
+      <p class="mb-1 text-truncate">{{ notif.content }}</p>
+      <small>
+        <span class="badge bg-secondary">{{ notif.type }}</span> 
+        <span class="badge ms-1" [class.bg-success]="notif.status === 'Sent'" [class.bg-warning]="notif.status === 'Pending'">
+          {{ notif.status }}
+        </span>
+      </small>
+    </div>
+  </div>
+</div>

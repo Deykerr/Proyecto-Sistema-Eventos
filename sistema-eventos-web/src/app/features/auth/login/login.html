@@ -1,0 +1,76 @@
+<div class="container d-flex justify-content-center align-items-center vh-100">
+  <div class="card shadow-lg p-4" style="width: 100%; max-width: 400px; border-radius: 15px;">
+    
+    <div class="card-body">
+      <div class="text-center mb-4">
+        <h2 class="fw-bold text-primary">Iniciar Sesión</h2>
+        <p class="text-muted">Bienvenido al Sistema de Eventos</p>
+      </div>
+
+      <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+        
+        <div class="mb-3">
+          <label for="email" class="form-label">Correo Electrónico</label>
+          <div class="input-group">
+            <span class="input-group-text"><i class="bi bi-envelope"></i></span>
+            <input 
+              type="email" 
+              id="email" 
+              class="form-control" 
+              placeholder="nombre@ejemplo.com"
+              formControlName="email"
+              [class.is-invalid]="loginForm.get('email')?.invalid && loginForm.get('email')?.touched"
+            >
+          </div>
+          <div *ngIf="loginForm.get('email')?.hasError('required') && loginForm.get('email')?.touched" class="text-danger small mt-1">
+            El correo es obligatorio.
+          </div>
+          <div *ngIf="loginForm.get('email')?.hasError('email') && loginForm.get('email')?.touched" class="text-danger small mt-1">
+            Ingresa un correo válido.
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label for="password" class="form-label">Contraseña</label>
+          <div class="input-group">
+            <span class="input-group-text"><i class="bi bi-lock"></i></span>
+            <input 
+              type="password" 
+              id="password" 
+              class="form-control" 
+              placeholder="********"
+              formControlName="password"
+              [class.is-invalid]="loginForm.get('password')?.invalid && loginForm.get('password')?.touched"
+            >
+          </div>
+          <div *ngIf="loginForm.get('password')?.invalid && loginForm.get('password')?.touched" class="text-danger small mt-1">
+            La contraseña es obligatoria (mín 6 caracteres).
+          </div>
+        </div>
+
+        <div class="d-flex justify-content-between align-items-center mb-4">
+          <div class="form-check">
+            <input type="checkbox" class="form-check-input" id="remember">
+            <label class="form-check-label small" for="remember">Recordarme</label>
+          </div>
+          <a routerLink="/forgot-password" class="text-decoration-none small">¿Olvidaste tu contraseña?</a>
+        </div>
+
+        <div class="d-grid">
+          <button type="submit" class="btn btn-primary py-2" [disabled]="loginForm.invalid || isLoading">
+            <span *ngIf="isLoading" class="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>
+            {{ isLoading ? 'Ingresando...' : 'Ingresar' }}
+          </button>
+        </div>
+      </form>
+    </div>
+
+    <div class="card-footer text-center bg-white border-0 mt-3">
+      <p class="small text-muted mb-0">
+        ¿No tienes cuenta? 
+        <a routerLink="/register" class="text-primary fw-bold text-decoration-none">Regístrate aquí</a>
+      </p>
+    </div>
+
+  </div>
+</div>

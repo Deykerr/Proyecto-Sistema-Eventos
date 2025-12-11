@@ -1,0 +1,57 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary shadow-sm">
+  <div class="container">
+    <a class="navbar-brand fw-bold" routerLink="/events">
+      <i class="bi bi-calendar-event me-2"></i>Sistema Eventos
+    </a>
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav me-auto">
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/events" routerLinkActive="active">Eventos</a>
+        </li>
+        <li class="nav-item" *ngIf="isLoggedIn">
+          <a class="nav-link" routerLink="/my-reservations" routerLinkActive="active">Mis Reservas</a>
+        </li>
+        <li class="nav-item" *ngIf="isLoggedIn && (userRole === 'Admin' || userRole === 'Organizer')">
+          <a class="nav-link" routerLink="/dashboard" routerLinkActive="active">Dashboard</a>
+        </li>
+
+        <li class="nav-item" *ngIf="isLoggedIn && userRole === 'Admin'">
+          <a class="nav-link" routerLink="/admin/categories" routerLinkActive="active">
+            <i class="bi bi-gear-fill"></i> Categorías
+          </a>
+        </li>
+
+      </ul>
+
+      <div class="d-flex">
+        <ng-container *ngIf="!isLoggedIn; else loggedInBlock">
+          <a routerLink="/login" class="btn btn-outline-light me-2">Ingresar</a>
+          <a routerLink="/register" class="btn btn-light text-primary">Registrarse</a>
+        </ng-container>
+
+        <ng-template #loggedInBlock>
+          <div class="dropdown">
+            <button class="btn btn-light dropdown-toggle" type="button" data-bs-toggle="dropdown">
+              <i class="bi bi-person-circle me-1"></i> Mi Cuenta
+            </button>
+            <ul class="dropdown-menu dropdown-menu-end">
+              <li><a class="dropdown-item" routerLink="/profile">Perfil</a></li>
+              <li>
+                <hr class="dropdown-divider">
+              </li>
+
+              <li><a class="dropdown-item" routerLink="/notifications">Notificaciones</a></li>
+
+              <li><button class="dropdown-item text-danger" (click)="logout()">Cerrar Sesión</button></li>
+            </ul>
+          </div>
+        </ng-template>
+      </div>
+    </div>
+  </div>
+</nav>

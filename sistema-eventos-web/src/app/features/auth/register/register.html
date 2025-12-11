@@ -1,0 +1,109 @@
+<div class="container d-flex justify-content-center align-items-center vh-100">
+  <div class="card shadow-lg p-4" style="width: 100%; max-width: 500px; border-radius: 15px;">
+    
+    <div class="card-body">
+      <div class="text-center mb-4">
+        <h2 class="fw-bold text-primary">Crear Cuenta</h2>
+        <p class="text-muted">Únete a nuestra plataforma de eventos</p>
+      </div>
+
+      <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+        
+        <div class="row">
+          <div class="col-md-6 mb-3">
+            <label class="form-label">Nombre</label>
+            <input 
+              type="text" 
+              class="form-control" 
+              formControlName="firstName"
+              [class.is-invalid]="f['firstName'].invalid && f['firstName'].touched"
+            >
+            <div *ngIf="f['firstName'].invalid && f['firstName'].touched" class="text-danger small">
+              Requerido (mín 2 letras).
+            </div>
+          </div>
+
+          <div class="col-md-6 mb-3">
+            <label class="form-label">Apellido</label>
+            <input 
+              type="text" 
+              class="form-control" 
+              formControlName="lastName"
+              [class.is-invalid]="f['lastName'].invalid && f['lastName'].touched"
+            >
+            <div *ngIf="f['lastName'].invalid && f['lastName'].touched" class="text-danger small">
+              Requerido (mín 2 letras).
+            </div>
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label">Correo Electrónico</label>
+          <div class="input-group">
+            <span class="input-group-text"><i class="bi bi-envelope"></i></span>
+            <input 
+              type="email" 
+              class="form-control" 
+              formControlName="email"
+              placeholder="nombre@ejemplo.com"
+              [class.is-invalid]="f['email'].invalid && f['email'].touched"
+            >
+          </div>
+          <div *ngIf="f['email'].hasError('required') && f['email'].touched" class="text-danger small">
+            El correo es obligatorio.
+          </div>
+          <div *ngIf="f['email'].hasError('email') && f['email'].touched" class="text-danger small">
+            Correo inválido.
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label">Contraseña</label>
+          <div class="input-group">
+            <span class="input-group-text"><i class="bi bi-lock"></i></span>
+            <input 
+              type="password" 
+              class="form-control" 
+              formControlName="password"
+              placeholder="Mínimo 6 caracteres"
+              [class.is-invalid]="f['password'].invalid && f['password'].touched"
+            >
+          </div>
+          <div *ngIf="f['password'].invalid && f['password'].touched" class="text-danger small">
+            Mínimo 6 caracteres.
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label">Confirmar Contraseña</label>
+          <div class="input-group">
+            <span class="input-group-text"><i class="bi bi-lock-fill"></i></span>
+            <input 
+              type="password" 
+              class="form-control" 
+              formControlName="confirmPassword"
+              [class.is-invalid]="f['confirmPassword'].invalid && f['confirmPassword'].touched"
+            >
+          </div>
+          <div *ngIf="f['confirmPassword'].hasError('mismatch') && f['confirmPassword'].touched" class="text-danger small">
+            Las contraseñas no coinciden.
+          </div>
+        </div>
+
+        <div class="d-grid mt-4">
+          <button type="submit" class="btn btn-primary py-2" [disabled]="registerForm.invalid || isLoading">
+            <span *ngIf="isLoading" class="spinner-border spinner-border-sm me-2"></span>
+            {{ isLoading ? 'Registrando...' : 'Registrarse' }}
+          </button>
+        </div>
+      </form>
+    </div>
+
+    <div class="card-footer text-center bg-white border-0 mt-3">
+      <p class="small text-muted mb-0">
+        ¿Ya tienes cuenta? 
+        <a routerLink="/login" class="text-primary fw-bold text-decoration-none">Inicia sesión aquí</a>
+      </p>
+    </div>
+  </div>
+</div>

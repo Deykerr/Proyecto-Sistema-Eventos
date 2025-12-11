@@ -17,5 +17,8 @@ namespace Sistema_Eventos.Services.Interfaces
 
         // Devuelve true si borró, false si no encontró o no tiene permiso
         Task<bool> DeleteEventAsync(Guid id, Guid userId, bool isAdmin);
+
+       
+        Task<bool> PublishEventAsync(Guid eventId, Guid userId, bool isAdmin);
     }
 }

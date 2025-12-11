@@ -239,6 +239,22 @@
   },
   {
     "ContainingType": "Sistema_Eventos.Controllers.EventsController",
+    "Method": "Publish",
+    "RelativePath": "api/v1/events/{id}/publish",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Sistema_Eventos.Controllers.EventsController",
     "Method": "GetEventWeather",
     "RelativePath": "api/v1/events/{id}/weather",
     "HttpMethod": "GET",
