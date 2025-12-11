@@ -10,6 +10,11 @@
 
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav me-auto">
+
+        <li class="nav-item" *ngIf="isLoggedIn && (userRole === 'Organizer' || userRole === 'Admin')">
+          <a class="nav-link" routerLink="/events/my-events" routerLinkActive="active">Mis Eventos</a>
+        </li>
+
         <li class="nav-item">
           <a class="nav-link" routerLink="/events" routerLinkActive="active">Eventos</a>
         </li>

@@ -51,7 +51,9 @@ namespace Sistema_Eventos.DTOs
         public Guid Id { get; set; }
         public string Title { get; set; } = string.Empty;
         public string Description { get; set; } = string.Empty;
-        public string OrganizerName { get; set; } = string.Empty; // Nombre del organizador
+        public string OrganizerName { get; set; } = string.Empty; // Nombre del
+        public Guid CategoryId { get; set; }
+
         public string CategoryName { get; set; } = string.Empty;  // Nombre de la categoría
         public DateTime StartDate { get; set; }
         public DateTime EndDate { get; set; }

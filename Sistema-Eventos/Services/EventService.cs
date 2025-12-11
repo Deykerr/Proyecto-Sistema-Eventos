@@ -10,12 +10,13 @@ namespace Sistema_Eventos.Services
         private readonly IEventRepository _eventRepository;
         private readonly IUserRepository _userRepository; // Para validar si usuario existe, opcional
         private readonly IGeoService _geoService;
-
-        public EventService(IEventRepository eventRepository, IUserRepository userRepository, IGeoService geoService)
+        private readonly IReservationRepository _reservationRepository;
+        public EventService(IEventRepository eventRepository, IUserRepository userRepository, IGeoService geoService, IReservationRepository reservationRepository)
         {
             _eventRepository = eventRepository;
             _userRepository = userRepository;
             _geoService = geoService;
+            _reservationRepository = reservationRepository;
         }
 
         public async Task<List<EventResponseDto>> GetAllEventsAsync()
@@ -122,6 +123,7 @@ namespace Sistema_Eventos.Services
             return MapToDto(evento);
         }
 
+        // --- LÓGICA DE ELIMINACIÓN MEJORADA ---
         public async Task<bool> DeleteEventAsync(Guid id, Guid userId, bool isAdmin)
         {
             var evento = await _eventRepository.GetEventByIdAsync(id);
@@ -130,9 +132,23 @@ namespace Sistema_Eventos.Services
             if (evento.OrganizerId != userId && !isAdmin)
                 throw new UnauthorizedAccessException("No tienes permiso para eliminar este evento.");
 
+            // VALIDACIÓN DE NEGOCIO:
+            // Si el evento NO es borrador, verificamos si tiene reservas
+            if (evento.Status != EventStatus.Draft)
+            {
+                var reservations = await _reservationRepository.GetByEventIdAsync(id);
+                // Si hay alguna reserva que NO esté cancelada, impedimos borrar
+                if (reservations.Any(r => r.Status != ReservationStatus.Canceled))
+                {
+                    throw new InvalidOperationException("No se puede eliminar un evento publicado que ya tiene reservas activas. Cancélalo primero.");
+                }
+            }
+
             await _eventRepository.DeleteEventAsync(evento);
             return true;
         }
+
+
 
         // Método auxiliar para transformar Entidad -> DTO
         private static EventResponseDto MapToDto(Event evt)
@@ -151,6 +167,7 @@ namespace Sistema_Eventos.Services
                 IsPublic = evt.IsPublic,
                 Status = evt.Status.ToString(),
                 OrganizerName = evt.Organizer != null ? $"{evt.Organizer.FirstName} {evt.Organizer.LastName}" : "Desconocido",
+                CategoryId = evt.CategoryId,
                 CategoryName = evt.Category != null ? evt.Category.Name : "Sin Categoría",
                 Latitude = evt.Latitude,   // <--- Agrega esto
                 Longitude = evt.Longitude,
@@ -162,11 +179,9 @@ namespace Sistema_Eventos.Services
             var evento = await _eventRepository.GetEventByIdAsync(eventId);
             if (evento == null) return false;
 
-            // Solo el dueño o el admin pueden publicar
             if (evento.OrganizerId != userId && !isAdmin)
-                throw new UnauthorizedAccessException("No tienes permiso para publicar este evento.");
+                throw new UnauthorizedAccessException("No tienes permiso.");
 
-            // Cambiamos el estado
             evento.Status = EventStatus.Published;
             evento.UpdatedAt = DateTime.UtcNow;
 

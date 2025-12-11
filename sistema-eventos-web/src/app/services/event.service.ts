@@ -2,7 +2,8 @@ import { Injectable, inject } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { AuthService } from './auth.service';
-import { CreateEventRequest, Event } from '../core/models/event.model'; // Tu interfaz
+import { CreateEventRequest, Event, UpdateEventRequest } from '../core/models/event.model'; // Tu interfaz
+
 
 
 @Injectable({
@@ -41,6 +42,19 @@ export class EventService {
     return this.http.post<Event>(this.apiUrl, eventData, { headers: this.getHeaders() });
   }
 
+  getMyEvents(): Observable<Event[]> {
+    return this.http.get<Event[]>(`${this.apiUrl}/my-events`, { headers: this.getHeaders() });
+  }
+
+  // 2. Actualizar Evento (PUT)
+  updateEvent(id: string, eventData: UpdateEventRequest): Observable<Event> {
+    return this.http.put<Event>(`${this.apiUrl}/${id}`, eventData, { headers: this.getHeaders() });
+  }
+
+  // 3. Eliminar Evento (DELETE)
+  deleteEvent(id: string): Observable<any> {
+    return this.http.delete(`${this.apiUrl}/${id}`, { headers: this.getHeaders() });
+  }
   // 4. Publicar Evento
 publishEvent(id: string): Observable<any> {
   return this.http.post(`${this.apiUrl}/${id}/publish`, {}, { headers: this.getHeaders() });

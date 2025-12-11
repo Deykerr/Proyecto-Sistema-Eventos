@@ -6,6 +6,10 @@ import { ResetPasswordComponent } from './features/auth/reset-password/reset-pas
 
 import { ProfileComponent } from './features/profile/profile';
 
+//para admins
+import { MyEventsComponent } from './features/events/my-events/my-events';
+import { organizerGuard } from './core/guards/organizer-guard';
+
 import { EventListComponent } from './features/events/event-list/event-list'; 
 import { EventFormComponent } from './features/events/event-form/event-form';
 import { EventDetailComponent } from './features/events/event-detail/event-detail';
@@ -15,7 +19,7 @@ import { MyReservationsComponent } from './features/reservations/my-reservations
 import { adminGuard } from './core/guards/admin-guard';
 import { CategoryManagementComponent } from './features/admin/category-management/category-management';
 import { DashboardComponent } from './features/dashboard/dashboard';
-import { organizerGuard } from './core/guards/organizer-guard';
+
 
 import { NotificationsComponent } from './features/notifications/notifications';
 
@@ -32,6 +36,20 @@ export const routes: Routes = [
   
   //perfil de usuario
   { path: 'profile', component: ProfileComponent },
+
+  // Ruta para Mis Eventos (Protegida)
+  { 
+    path: 'events/my-events', 
+    component: MyEventsComponent,
+    canActivate: [organizerGuard] 
+  },
+  
+  // Ruta para Editar (Reutiliza el form)
+  { 
+    path: 'events/edit/:id', 
+    component: EventFormComponent,
+    canActivate: [organizerGuard] 
+  },
 
   // Rutas de eventos
   { path: 'events', component: EventListComponent },

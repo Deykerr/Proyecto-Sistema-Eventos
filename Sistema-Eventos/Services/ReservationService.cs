@@ -20,7 +20,14 @@ namespace Sistema_Eventos.Services
 
         public async Task<ReservationResponseDto> CreateReservationAsync(Guid userId, CreateReservationDto dto)
         {
-            // 1. Validar Evento
+            // 1. Validar si el usuario YA tiene una reserva activa para este evento (RF03)
+            bool alreadyReserved = await _reservationRepository.HasUserReservedEventAsync(userId, dto.EventId);
+            if (alreadyReserved)
+            {
+                throw new InvalidOperationException("Ya tienes una reserva activa para este evento.");
+            }
+
+            // 2. Validar Evento
             var evento = await _eventRepository.GetEventByIdAsync(dto.EventId);
             if (evento == null)
                 throw new Exception("El evento no existe.");
@@ -28,39 +35,36 @@ namespace Sistema_Eventos.Services
             if (evento.Status != EventStatus.Published)
                 throw new Exception("No se puede reservar un evento que no está publicado.");
 
-            // 2. Validar Cupos (RF02: Gestión de capacidad)
+            // 3. Validar Cupos
             if (evento.AvailableSlots <= 0)
                 throw new Exception("No hay cupos disponibles para este evento.");
 
-            // 3. Crear Reserva
+            // 4. Crear Reserva
             var reservation = new Reservation
             {
                 UserId = userId,
                 EventId = dto.EventId,
                 ReservationDate = DateTime.UtcNow,
-                Status = ReservationStatus.Pending, // Inicia como pendiente (ej. esperando pago)
-                TotalAmount = evento.Price // Asumimos 1 ticket por reserva
+                Status = ReservationStatus.Pending,
+                TotalAmount = evento.Price
             };
 
-            // 4. Actualizar Cupos del Evento (Importante para concurrencia básica)
+            // 5. Actualizar Cupos del Evento
             evento.AvailableSlots -= 1;
             await _eventRepository.UpdateEventAsync(evento);
 
-            // 5. Guardar Reserva
+            // 6. Guardar Reserva
             await _reservationRepository.AddAsync(reservation);
 
-            // --- NUEVO: ENVIAR NOTIFICACIÓN ---
+            // 7. Notificar
             await _notificationService.SendNotificationAsync(
                 userId,
                 "Confirmación de Reserva",
-                $"Tu reserva para el evento '{evento.Title}' ha sido creada exitosamente. Estado: {reservation.Status}",
+                $"Tu reserva para '{evento.Title}' ha sido creada. Estado: {reservation.Status}",
                 NotificationType.Email
             );
-            // ----------------------------------
 
             return MapToDto(reservation, evento.Title);
-
-
         }
 
         public async Task<List<ReservationResponseDto>> GetMyReservationsAsync(Guid userId)

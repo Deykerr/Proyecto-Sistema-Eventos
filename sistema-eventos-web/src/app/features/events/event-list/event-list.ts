@@ -7,6 +7,7 @@ import { RouterLink } from '@angular/router';
 import { CategoryService } from '../../../services/category.service';
 import { Category } from '../../../core/models/category.model';
 import { FormsModule } from '@angular/forms';
+import { AuthService } from '../../../services/auth.service';
 
 @Component({
   selector: 'app-event-list',
@@ -19,6 +20,7 @@ export class EventListComponent implements OnInit {
   private eventService = inject(EventService);
   private cd = inject(ChangeDetectorRef); 
   private categoryService = inject(CategoryService);
+  public authService = inject(AuthService);
 
   allEvents: Event[] = []; // Copia de respaldo de todos los eventos
   events: Event[] = [];    // Lista que se muestra en pantalla

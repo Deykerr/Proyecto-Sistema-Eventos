@@ -16,10 +16,12 @@ namespace Sistema_Eventos.Repositories
 
         public async Task<List<Event>> GetAllEventsAsync()
         {
-            // Incluimos la categoría y el organizador para tener la info completa al listar
+            // --- MODIFICACIÓN: FILTRAR SOLO PUBLICADOS ---
             return await _context.Events
+                .Where(e => e.Status == EventStatus.Published) // <--- Filtro Clave [cite: 142]
                 .Include(e => e.Category)
                 .Include(e => e.Organizer)
+                .OrderBy(e => e.StartDate) // Opcional: ordenar por fecha
                 .ToListAsync();
         }
 

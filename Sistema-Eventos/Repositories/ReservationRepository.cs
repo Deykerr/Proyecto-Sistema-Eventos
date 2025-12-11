@@ -40,6 +40,15 @@ namespace Sistema_Eventos.Repositories
                 .ToListAsync();
         }
 
+        public async Task<bool> HasUserReservedEventAsync(Guid userId, Guid eventId)
+        {
+            // Retorna true si existe alguna reserva NO cancelada para ese usuario y evento
+            return await _context.Reservations
+                .AnyAsync(r => r.UserId == userId
+                            && r.EventId == eventId
+                            && r.Status != ReservationStatus.Canceled);
+        }
+
         public async Task AddAsync(Reservation reservation)
         {
             await _context.Reservations.AddAsync(reservation);

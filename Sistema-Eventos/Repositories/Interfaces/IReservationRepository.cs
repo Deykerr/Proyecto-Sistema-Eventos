@@ -12,6 +12,8 @@ namespace Sistema_Eventos.Repositories.Interfaces
         // Para que el organizador vea quiénes reservaron su evento
         Task<List<Reservation>> GetByEventIdAsync(Guid eventId);
 
+        Task<bool> HasUserReservedEventAsync(Guid userId, Guid eventId);
+
         Task AddAsync(Reservation reservation);
         Task UpdateAsync(Reservation reservation);
     }
