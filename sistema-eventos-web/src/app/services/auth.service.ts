@@ -35,7 +35,27 @@ export class AuthService {
         if (response.token) {
           // Guardamos el token en el navegador
           localStorage.setItem('token', response.token);
+          localStorage.setItem('refreshToken', response.refreshToken);
           // Notificamos a toda la app que hay un nuevo usuario
+          this.currentUserTokenSubject.next(response.token);
+        }
+      })
+    );
+  }
+
+  // --- NUEVO MÉTODO ---
+  refreshToken(): Observable<AuthResponse> {
+    const accessToken = localStorage.getItem('token') || '';
+    const refreshToken = localStorage.getItem('refreshToken') || '';
+
+    return this.http.post<AuthResponse>(`${this.apiUrl}/refresh`, { 
+      accessToken, 
+      refreshToken 
+    }).pipe(
+      tap(response => {
+        if (response.token) {
+          localStorage.setItem('token', response.token);
+          localStorage.setItem('refreshToken', response.refreshToken);
           this.currentUserTokenSubject.next(response.token);
         }
       })
@@ -50,6 +70,7 @@ export class AuthService {
   // --- 3. LOGOUT ---
   logout(): void {
     localStorage.removeItem('token');
+    localStorage.removeItem('refreshToken');
     this.currentUserTokenSubject.next(null);
     // Aquí podrías redirigir al login: this.router.navigate(['/auth/login']);
   }

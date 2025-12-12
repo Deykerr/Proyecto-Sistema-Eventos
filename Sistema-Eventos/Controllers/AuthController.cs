@@ -56,6 +56,25 @@ namespace Sistema_Eventos.Controllers
             return Ok(result);
         }
 
+        // POST: api/v1/auth/refresh
+        [HttpPost("refresh")]
+        public async Task<IActionResult> Refresh([FromBody] TokenRequestDto request)
+        {
+            if (string.IsNullOrEmpty(request.AccessToken) || string.IsNullOrEmpty(request.RefreshToken))
+            {
+                return BadRequest(new { message = "Token inválido" });
+            }
+
+            var result = await _authService.RefreshTokenAsync(request);
+
+            if (result == null)
+            {
+                return BadRequest(new { message = "Token de refresco inválido o expirado. Por favor inicia sesión nuevamente." });
+            }
+
+            return Ok(result);
+        }
+
         // POST: api/v1/auth/forgot-password
         [HttpPost("forgot-password")]
         public async Task<IActionResult> ForgotPassword([FromBody] ForgotPasswordDto request)

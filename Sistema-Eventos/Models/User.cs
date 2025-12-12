@@ -36,5 +36,9 @@ namespace Sistema_Eventos.Models
         // Relaciones (Navegación)
         public ICollection<Event>? OrganizedEvents { get; set; }
         public ICollection<Reservation>? Reservations { get; set; }
+
+        // --- CAMPOS PARA REFRESH TOKEN ---
+        public string? RefreshToken { get; set; }
+        public DateTime RefreshTokenExpiryTime { get; set; }
     }
 }

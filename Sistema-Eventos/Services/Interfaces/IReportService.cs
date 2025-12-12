@@ -6,5 +6,6 @@ namespace Sistema_Eventos.Services.Interfaces
     {
         Task<DashboardStatsDto> GetDashboardStatsAsync(Guid organizerId);
         Task<List<EventStatsDto>> GetEventsStatsAsync(Guid organizerId);
+        Task<byte[]> ExportStatsToCsvAsync(Guid organizerId);
     }
 }

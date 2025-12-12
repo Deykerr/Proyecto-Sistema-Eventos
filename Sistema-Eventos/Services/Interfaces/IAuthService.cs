@@ -13,5 +13,7 @@ namespace Sistema_Eventos.Services.Interfaces
 
         Task ForgotPasswordAsync(ForgotPasswordDto request); // Retorna un mensaje o el token simulado
         Task<bool> ResetPasswordAsync(ResetPasswordDto request);
+
+        Task<AuthResponseDto?> RefreshTokenAsync(TokenRequestDto request);
     }
 }

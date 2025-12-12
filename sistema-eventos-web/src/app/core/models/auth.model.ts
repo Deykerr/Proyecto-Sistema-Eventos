@@ -14,6 +14,7 @@ export interface RegisterRequest {
 
 export interface AuthResponse {
   token: string;
+  refreshToken: string;
   email: string;
   role: UserRole; // Usamos el tipo definido arriba
 }

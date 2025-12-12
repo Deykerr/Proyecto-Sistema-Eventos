@@ -7,6 +7,7 @@ export interface Event {
   description: string;
   organizerName: string;
   categoryName: string;
+  categoryId: string;
   startDate: string; // ISO String
   endDate: string;   // ISO String
   location: string;
@@ -36,5 +37,5 @@ export interface CreateEventRequest {
 
 // Para actualizar (PUT) - Hereda de Create pero añade status
 export interface UpdateEventRequest extends CreateEventRequest {
-  status: EventStatus;
+  status: number;
 }

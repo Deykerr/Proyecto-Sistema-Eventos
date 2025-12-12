@@ -20,9 +20,9 @@ import { adminGuard } from './core/guards/admin-guard';
 import { CategoryManagementComponent } from './features/admin/category-management/category-management';
 import { DashboardComponent } from './features/dashboard/dashboard';
 
-
 import { NotificationsComponent } from './features/notifications/notifications';
 
+import {UserManagementComponent } from './features/admin/user-management/user-management';
 
 export const routes: Routes = [
   // Ruta por defecto: Redirigir al Login
@@ -74,5 +74,12 @@ export const routes: Routes = [
 
   //notificaciones
   { path: 'notifications', component: NotificationsComponent },
+
+  //gestion de users solo admin
+  { 
+    path: 'admin/users', 
+    component: UserManagementComponent,
+    canActivate: [adminGuard] // <--- SOLO ADMIN
+  },
 
 ];

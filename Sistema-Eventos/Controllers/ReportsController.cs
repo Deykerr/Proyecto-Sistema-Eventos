@@ -34,5 +34,17 @@ namespace Sistema_Eventos.Controllers
             var stats = await _reportService.GetEventsStatsAsync(userId);
             return Ok(stats);
         }
+
+        // GET: api/v1/reports/export
+        [HttpGet("export")]
+        public async Task<IActionResult> ExportReport()
+        {
+            var userId = Guid.Parse(User.FindFirst(ClaimTypes.NameIdentifier)?.Value!);
+
+            var csvBytes = await _reportService.ExportStatsToCsvAsync(userId);
+            var fileName = $"Reporte_Eventos_{DateTime.UtcNow:yyyyMMdd_HHmm}.csv";
+
+            return File(csvBytes, "text/csv", fileName);
+        }
     }
 }

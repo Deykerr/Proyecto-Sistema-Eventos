@@ -32,8 +32,7 @@
             <div class="small text-muted">{{ event.categoryName }}</div>
           </td>
           <td>
-            <span class="badge" 
-                  [ngClass]="{
+            <span class="badge" [ngClass]="{
                     'bg-warning text-dark': event.status === 'Draft',
                     'bg-success': event.status === 'Published',
                     'bg-danger': event.status === 'Canceled'
@@ -46,13 +45,19 @@
             {{ event.capacity - event.availableSlots }} / {{ event.capacity }}
           </td>
           <td class="text-end">
-            <a [routerLink]="['/events', event.id]" class="btn btn-sm btn-outline-primary me-2" title="Ver Detalle / Publicar">
+            <a [routerLink]="['/events', event.id]" class="btn btn-sm btn-outline-primary me-2"
+              title="Ver Detalle / Publicar">
               <i class="bi bi-eye"></i>
             </a>
-            
+
             <a [routerLink]="['/events/edit', event.id]" class="btn btn-sm btn-outline-secondary me-2" title="Editar">
               <i class="bi bi-pencil"></i>
             </a>
+
+            <button *ngIf="event.status !== 'Canceled'" class="btn btn-sm btn-warning me-2" (click)="cancelEvent(event)"
+              title="Cancelar Evento">
+              <i class="bi bi-x-octagon"></i>
+            </button>
 
             <button class="btn btn-sm btn-outline-danger" (click)="deleteEvent(event.id, event.title)" title="Eliminar">
               <i class="bi bi-trash"></i>

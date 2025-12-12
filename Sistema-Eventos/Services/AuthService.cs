@@ -6,6 +6,7 @@ using Sistema_Eventos.DTOs;
 using Sistema_Eventos.Models;
 using Sistema_Eventos.Repositories.Interfaces;
 using Sistema_Eventos.Services.Interfaces;
+using System.Security.Cryptography;
 
 namespace Sistema_Eventos.Services
 {
@@ -63,12 +64,23 @@ namespace Sistema_Eventos.Services
                 return null;
             }
 
+            if (!user.IsActive) return null;
+
             // 3. Generar JWT
             string token = CreateToken(user);
+
+            // 2. Generar Refresh Token (Cadena aleatoria)
+            var refreshToken = GenerateRefreshToken();
+
+            // 3. Guardar en BD
+            user.RefreshToken = refreshToken;
+            user.RefreshTokenExpiryTime = DateTime.UtcNow.AddDays(7); // Dura 7 días
+            await _userRepository.UpdateUserAsync(user);
 
             return new AuthResponseDto
             {
                 Token = token,
+                RefreshToken = refreshToken,
                 Email = user.Email,
                 Role = user.Role.ToString()
             };
@@ -103,6 +115,91 @@ namespace Sistema_Eventos.Services
             var token = tokenHandler.CreateToken(tokenDescriptor);
 
             return tokenHandler.WriteToken(token);
+        }
+
+        // --- NUEVO MÉTODO: REFRESCAR TOKEN ---
+        public async Task<AuthResponseDto?> RefreshTokenAsync(TokenRequestDto request)
+        {
+            string accessToken = request.AccessToken;
+            string refreshToken = request.RefreshToken;
+
+            // 1. Extraer los claims del token expirado (sin validar fecha)
+            var principal = GetPrincipalFromExpiredToken(accessToken);
+            if (principal == null) return null; // Token inválido
+
+            // 2. Obtener el ID del usuario
+            var userIdClaim = principal.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+            if (userIdClaim == null) return null;
+
+            var user = await _userRepository.GetUserByIdAsync(Guid.Parse(userIdClaim));
+
+            // 3. Validaciones de Seguridad
+            if (user == null || user.RefreshToken != refreshToken || user.RefreshTokenExpiryTime <= DateTime.UtcNow)
+            {
+                return null; // Refresh token incorrecto o expirado
+            }
+
+            // 4. Generar NUEVOS tokens (Rotación de tokens para mayor seguridad)
+            var newAccessToken = CreateToken(user);
+            var newRefreshToken = GenerateRefreshToken();
+
+            // 5. Actualizar BD
+            user.RefreshToken = newRefreshToken;
+            // Opcional: Renovamos los 7 días, o mantenemos la fecha original si queremos forcing de login absoluto
+            user.RefreshTokenExpiryTime = DateTime.UtcNow.AddDays(7);
+
+            await _userRepository.UpdateUserAsync(user);
+
+            return new AuthResponseDto
+            {
+                Token = newAccessToken,
+                RefreshToken = newRefreshToken,
+                Email = user.Email,
+                Role = user.Role.ToString()
+            };
+        }
+
+        private string GenerateRefreshToken()
+        {
+            var randomNumber = new byte[32];
+            using (var rng = RandomNumberGenerator.Create())
+            {
+                rng.GetBytes(randomNumber);
+                return Convert.ToBase64String(randomNumber);
+            }
+        }
+
+        private ClaimsPrincipal? GetPrincipalFromExpiredToken(string? token)
+        {
+            var key = Encoding.UTF8.GetBytes(_configuration.GetSection("Jwt:Key").Value ?? "ClaveSuperSecretaDeDesarrollo123456");
+
+            var tokenValidationParameters = new TokenValidationParameters
+            {
+                ValidateAudience = false,
+                ValidateIssuer = false,
+                ValidateIssuerSigningKey = true,
+                IssuerSigningKey = new SymmetricSecurityKey(key),
+                ValidateLifetime = false // IMPORTANTE: Ignoramos que esté expirado
+            };
+
+            var tokenHandler = new JwtSecurityTokenHandler();
+            try
+            {
+                var principal = tokenHandler.ValidateToken(token, tokenValidationParameters, out SecurityToken securityToken);
+
+                // Validamos que sea un token firmado con HmacSha512 (el mismo algoritmo que usamos al crear)
+                if (securityToken is not JwtSecurityToken jwtSecurityToken ||
+                    !jwtSecurityToken.Header.Alg.Equals(SecurityAlgorithms.HmacSha512, StringComparison.InvariantCultureIgnoreCase))
+                {
+                    throw new SecurityTokenException("Invalid token");
+                }
+
+                return principal;
+            }
+            catch
+            {
+                return null;
+            }
         }
 
         public async Task ForgotPasswordAsync(ForgotPasswordDto request)

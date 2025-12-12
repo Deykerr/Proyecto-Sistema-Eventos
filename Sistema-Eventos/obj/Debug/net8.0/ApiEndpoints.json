@@ -33,6 +33,22 @@
   },
   {
     "ContainingType": "Sistema_Eventos.Controllers.AuthController",
+    "Method": "Refresh",
+    "RelativePath": "api/v1/auth/refresh",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "Sistema_Eventos.DTOs.TokenRequestDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Sistema_Eventos.Controllers.AuthController",
     "Method": "Register",
     "RelativePath": "api/v1/auth/register",
     "HttpMethod": "POST",
@@ -342,6 +358,16 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "Sistema_Eventos.Controllers.ReportsController",
+    "Method": "ExportReport",
+    "RelativePath": "api/v1/reports/export",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "Sistema_Eventos.Controllers.ReservationsController",
     "Method": "Create",
     "RelativePath": "api/v1/reservations",
@@ -385,6 +411,48 @@
   },
   {
     "ContainingType": "Sistema_Eventos.Controllers.UsersController",
+    "Method": "GetAll",
+    "RelativePath": "api/v1/users",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Sistema_Eventos.Controllers.UsersController",
+    "Method": "GetById",
+    "RelativePath": "api/v1/users/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Sistema_Eventos.Controllers.UsersController",
+    "Method": "ToggleStatus",
+    "RelativePath": "api/v1/users/{id}/status",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Sistema_Eventos.Controllers.UsersController",
     "Method": "GetProfile",
     "RelativePath": "api/v1/users/profile",
     "HttpMethod": "GET",
@@ -408,26 +476,5 @@
       }
     ],
     "ReturnTypes": []
-  },
-  {
-    "ContainingType": "Sistema_Eventos.Controllers.WeatherForecastController",
-    "Method": "Get",
-    "RelativePath": "WeatherForecast",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [],
-    "ReturnTypes": [
-      {
-        "Type": "System.Collections.Generic.IEnumerable\u00601[[Sistema_Eventos.WeatherForecast, Sistema-Eventos, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ],
-    "EndpointName": "GetWeatherForecast"
   }
 ]

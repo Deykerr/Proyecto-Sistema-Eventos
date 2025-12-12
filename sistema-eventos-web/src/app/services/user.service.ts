@@ -28,4 +28,16 @@ export class UserService {
   updateProfile(data: UpdateProfileRequest): Observable<UserProfile> {
     return this.http.put<UserProfile>(`${this.apiUrl}/profile`, data, { headers: this.getHeaders() });
   }
+
+  // --- NUEVOS MÉTODOS PARA ADMIN ---
+
+  // GET: Obtener todos los usuarios
+  getAllUsers(): Observable<UserProfile[]> {
+    return this.http.get<UserProfile[]>(this.apiUrl, { headers: this.getHeaders() });
+  }
+
+  // PUT: Cambiar estado (Banear/Activar)
+  toggleUserStatus(id: string): Observable<any> {
+    return this.http.put(`${this.apiUrl}/${id}/status`, {}, { headers: this.getHeaders() });
+  }
 }

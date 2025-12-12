@@ -1,0 +1,48 @@
+<div class="container mt-5">
+  <h2 class="mb-4 text-primary">Gestión de Usuarios</h2>
+
+  <div *ngIf="isLoading" class="text-center py-5">
+    <div class="spinner-border text-primary" role="status"></div>
+  </div>
+
+  <div class="card shadow-sm" *ngIf="!isLoading">
+    <div class="table-responsive">
+      <table class="table table-hover align-middle mb-0">
+        <thead class="table-light">
+          <tr>
+            <th>Usuario</th>
+            <th>Rol</th>
+            <th>Fecha Registro</th>
+            <th>Estado</th>
+            <th class="text-end">Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let user of users">
+            <td>
+              <div class="fw-bold">{{ user.firstName }} {{ user.lastName }}</div>
+              <div class="small text-muted">{{ user.email }}</div>
+            </td>
+            <td>
+              <span class="badge bg-secondary">{{ user.role }}</span>
+            </td>
+            <td>{{ user.createdAt | date:'shortDate' }}</td>
+            <td>
+              <span class="badge" [ngClass]="user.isActive ? 'bg-success' : 'bg-danger'">
+                {{ user.isActive ? 'Activo' : 'Inactivo' }}
+              </span>
+            </td>
+            <td class="text-end">
+              <button class="btn btn-sm" 
+                      [ngClass]="user.isActive ? 'btn-outline-danger' : 'btn-outline-success'"
+                      (click)="toggleStatus(user)"
+                      [disabled]="user.role === 'Admin'"> <i class="bi" [ngClass]="user.isActive ? 'bi-ban' : 'bi-check-circle'"></i>
+                {{ user.isActive ? 'Bloquear' : 'Activar' }}
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

@@ -51,5 +51,37 @@ namespace Sistema_Eventos.Controllers
                 return BadRequest(new { message = ex.Message });
             }
         }
+
+        // --- ENDPOINTS PARA ADMIN ---
+
+        // GET: api/v1/users (Listar todos)
+        [HttpGet]
+        [Authorize(Roles = "Admin")] // <--- SOLO ADMIN
+        public async Task<IActionResult> GetAll()
+        {
+            var users = await _userService.GetAllUsersAsync();
+            return Ok(users);
+        }
+
+        // GET: api/v1/users/{id} (Ver uno específico)
+        [HttpGet("{id}")]
+        [Authorize(Roles = "Admin")]
+        public async Task<IActionResult> GetById(Guid id)
+        {
+            var user = await _userService.GetUserByIdAdminAsync(id);
+            if (user == null) return NotFound();
+            return Ok(user);
+        }
+
+        // PUT: api/v1/users/{id}/status (Banear/Desbanear)
+        [HttpPut("{id}/status")]
+        [Authorize(Roles = "Admin")]
+        public async Task<IActionResult> ToggleStatus(Guid id)
+        {
+            var success = await _userService.ToggleUserStatusAsync(id);
+            if (!success) return NotFound();
+
+            return Ok(new { message = "El estado del usuario ha sido actualizado." });
+        }
     }
 }

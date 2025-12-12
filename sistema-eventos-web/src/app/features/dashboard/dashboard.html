@@ -2,14 +2,18 @@
   <div class="d-flex justify-content-between align-items-center mb-4">
     <h2 class="fw-bold text-primary">Panel de Control</h2>
     <span class="badge bg-secondary">Organizador</span>
-  </div>
 
+  </div>
+  <button class="btn btn-outline-success" (click)="downloadReport()">
+    <i class="bi bi-file-earmark-spreadsheet"></i> Exportar CSV
+  </button>
+  <hr>
   <div *ngIf="isLoading" class="text-center py-5">
     <div class="spinner-border text-primary" role="status"><span class="visually-hidden">Cargando...</span></div>
   </div>
 
   <div *ngIf="!isLoading">
-    
+
     <div class="row g-4 mb-5" *ngIf="stats">
       <div class="col-md-3">
         <div class="card shadow-sm border-start border-success border-4 h-100">
@@ -70,10 +74,9 @@
                 <div class="d-flex align-items-center justify-content-center" style="gap: 10px;">
                   <span class="small">{{ item.occupancyRate * 100 | number:'1.0-0' }}%</span>
                   <div class="progress" style="width: 80px; height: 6px;">
-                    <div class="progress-bar" 
-                         [ngClass]="{'bg-success': item.occupancyRate < 0.8, 'bg-warning': item.occupancyRate >= 0.8, 'bg-danger': item.occupancyRate >= 0.95}"
-                         role="progressbar" 
-                         [style.width.%]="item.occupancyRate * 100">
+                    <div class="progress-bar"
+                      [ngClass]="{'bg-success': item.occupancyRate < 0.8, 'bg-warning': item.occupancyRate >= 0.8, 'bg-danger': item.occupancyRate >= 0.95}"
+                      role="progressbar" [style.width.%]="item.occupancyRate * 100">
                     </div>
                   </div>
                 </div>

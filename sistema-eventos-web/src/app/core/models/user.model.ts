@@ -6,6 +6,7 @@ export interface UserProfile {
   firstName: string;
   lastName: string;
   role: UserRole;
+  isActive: boolean;
   createdAt: Date | string; // La API devuelve string ISO
 }
 

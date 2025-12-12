@@ -2,6 +2,7 @@ import { Component, inject, OnInit, ChangeDetectorRef } from '@angular/core'; //
 import { CommonModule } from '@angular/common';
 import { ReportService } from '../../services/report.service';
 import { DashboardStats, EventStats } from '../../core/models/report.model';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-dashboard',
@@ -48,6 +49,37 @@ export class DashboardComponent implements OnInit {
         console.error(err);
         this.isLoading = false;
         this.cd.detectChanges(); // <--- Forzar actualización
+      }
+    });
+  }
+
+  // --- FUNCIÓN DE DESCARGA ---
+  downloadReport() {
+    Swal.fire({
+      title: 'Generando Reporte...',
+      text: 'Por favor espera un momento.',
+      allowOutsideClick: false,
+      didOpen: () => {
+        Swal.showLoading();
+      }
+    });
+
+    this.reportService.exportReport().subscribe({
+      next: (blob) => {
+        Swal.close(); // Cerramos el loading
+
+        // Truco para descargar el Blob desde el navegador
+        const url = window.URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        // Nombre del archivo sugerido
+        a.download = `Reporte_Eventos_${new Date().toISOString().slice(0,10)}.csv`;
+        a.click();
+        window.URL.revokeObjectURL(url);
+      },
+      error: (err) => {
+        console.error(err);
+        Swal.fire('Error', 'No se pudo descargar el reporte.', 'error');
       }
     });
   }

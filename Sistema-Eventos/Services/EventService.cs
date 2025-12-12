@@ -11,12 +11,14 @@ namespace Sistema_Eventos.Services
         private readonly IUserRepository _userRepository; // Para validar si usuario existe, opcional
         private readonly IGeoService _geoService;
         private readonly IReservationRepository _reservationRepository;
-        public EventService(IEventRepository eventRepository, IUserRepository userRepository, IGeoService geoService, IReservationRepository reservationRepository)
+        private readonly INotificationService _notificationService;
+        public EventService(IEventRepository eventRepository, IUserRepository userRepository, IGeoService geoService, IReservationRepository reservationRepository, INotificationService notificationService)
         {
             _eventRepository = eventRepository;
             _userRepository = userRepository;
             _geoService = geoService;
             _reservationRepository = reservationRepository;
+            _notificationService = notificationService;
         }
 
         public async Task<List<EventResponseDto>> GetAllEventsAsync()
@@ -96,6 +98,13 @@ namespace Sistema_Eventos.Services
             if (evento.OrganizerId != userId && !isAdmin)
                 throw new UnauthorizedAccessException("No tienes permiso para modificar este evento.");
 
+            // --- 4. DETECCIÓN DE CAMBIOS CRÍTICOS ---
+            bool isLocationChanged = evento.Location != dto.Location;
+            bool isDateChanged = evento.StartDate != dto.StartDate.ToUniversalTime();
+
+            // Verificamos si se está cancelando (estaba activo y ahora pasa a Cancelado)
+            bool isCancelling = evento.Status != EventStatus.Canceled && dto.Status == EventStatus.Canceled;
+
             // Actualizar campos
             evento.Title = dto.Title;
             evento.Description = dto.Description;
@@ -118,6 +127,34 @@ namespace Sistema_Eventos.Services
             }
 
             evento.UpdatedAt = DateTime.UtcNow;
+
+            // --- 5. LÓGICA DE NOTIFICACIÓN ---
+            if (isCancelling || isLocationChanged || isDateChanged)
+            {
+                // Obtenemos a todos los que tienen reserva (Confirmada o Pendiente)
+                var reservations = await _reservationRepository.GetByEventIdAsync(id);
+                var activeReservations = reservations.Where(r => r.Status != ReservationStatus.Canceled).ToList();
+
+                foreach (var res in activeReservations)
+                {
+                    string subject = "";
+                    string message = "";
+
+                    if (isCancelling)
+                    {
+                        subject = "AVISO: Evento Cancelado";
+                        message = $"Hola {res.User?.FirstName}, lamentamos informarte que el evento '{evento.Title}' ha sido cancelado por el organizador.";
+                    }
+                    else
+                    {
+                        subject = "ACTUALIZACIÓN: Cambios en tu Evento";
+                        message = $"Hola {res.User?.FirstName}, el evento '{evento.Title}' ha sufrido cambios importantes (Fecha o Ubicación). Por favor revisa los nuevos detalles.";
+                    }
+
+                    // Enviamos la notificación
+                    await _notificationService.SendNotificationAsync(res.UserId, subject, message, NotificationType.Email);
+                }
+            }
 
             await _eventRepository.UpdateEventAsync(evento);
             return MapToDto(evento);

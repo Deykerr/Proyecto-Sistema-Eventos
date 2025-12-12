@@ -52,5 +52,49 @@ namespace Sistema_Eventos.Services
                 CreatedAt = user.CreatedAt
             };
         }
+
+        public async Task<List<UserProfileDto>> GetAllUsersAsync()
+        {
+            var users = await _userRepository.GetAllUsersAsync();
+            return users.Select(u => new UserProfileDto
+            {
+                Id = u.Id,
+                Email = u.Email,
+                FirstName = u.FirstName,
+                LastName = u.LastName,
+                Role = u.Role.ToString(),
+                IsActive = u.IsActive, // <--- Importante
+                CreatedAt = u.CreatedAt
+            }).ToList();
+        }
+
+        public async Task<UserProfileDto?> GetUserByIdAdminAsync(Guid id)
+        {
+            var user = await _userRepository.GetUserByIdAsync(id);
+            if (user == null) return null;
+
+            return new UserProfileDto
+            {
+                Id = user.Id,
+                Email = user.Email,
+                FirstName = user.FirstName,
+                LastName = user.LastName,
+                Role = user.Role.ToString(),
+                IsActive = user.IsActive,
+                CreatedAt = user.CreatedAt
+            };
+        }
+
+        public async Task<bool> ToggleUserStatusAsync(Guid id)
+        {
+            var user = await _userRepository.GetUserByIdAsync(id);
+            if (user == null) return false;
+
+            // Invertimos el estado (Si es true pasa a false, y viceversa)
+            user.IsActive = !user.IsActive;
+
+            await _userRepository.UpdateUserAsync(user);
+            return true;
+        }
     }
 }
