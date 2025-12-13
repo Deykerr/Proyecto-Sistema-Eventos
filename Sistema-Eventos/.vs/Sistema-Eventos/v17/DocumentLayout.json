@@ -3,6 +3,26 @@
   "WorkspaceRootPath": "C:\\Users\\LOQ\\Documents\\6C\\ServiciosWeb\\Sistema-Eventos-Proyecto\\Sistema-Eventos\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{8C21B4CE-6219-4108-8463-99AB45E51E0B}|Sistema-Eventos.csproj|c:\\users\\loq\\documents\\6c\\serviciosweb\\sistema-eventos-proyecto\\sistema-eventos\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8C21B4CE-6219-4108-8463-99AB45E51E0B}|Sistema-Eventos.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8C21B4CE-6219-4108-8463-99AB45E51E0B}|Sistema-Eventos.csproj|c:\\users\\loq\\documents\\6c\\serviciosweb\\sistema-eventos-proyecto\\sistema-eventos\\workers\\reservationreminderworker.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8C21B4CE-6219-4108-8463-99AB45E51E0B}|Sistema-Eventos.csproj|solutionrelative:workers\\reservationreminderworker.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8C21B4CE-6219-4108-8463-99AB45E51E0B}|Sistema-Eventos.csproj|c:\\users\\loq\\documents\\6c\\serviciosweb\\sistema-eventos-proyecto\\sistema-eventos\\sistema-eventos.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{8C21B4CE-6219-4108-8463-99AB45E51E0B}|Sistema-Eventos.csproj|solutionrelative:sistema-eventos.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8C21B4CE-6219-4108-8463-99AB45E51E0B}|Sistema-Eventos.csproj|c:\\users\\loq\\documents\\6c\\serviciosweb\\sistema-eventos-proyecto\\sistema-eventos\\repositories\\reservationrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8C21B4CE-6219-4108-8463-99AB45E51E0B}|Sistema-Eventos.csproj|solutionrelative:repositories\\reservationrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8C21B4CE-6219-4108-8463-99AB45E51E0B}|Sistema-Eventos.csproj|c:\\users\\loq\\documents\\6c\\serviciosweb\\sistema-eventos-proyecto\\sistema-eventos\\repositories\\interfaces\\ireservationrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8C21B4CE-6219-4108-8463-99AB45E51E0B}|Sistema-Eventos.csproj|solutionrelative:repositories\\interfaces\\ireservationrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{8C21B4CE-6219-4108-8463-99AB45E51E0B}|Sistema-Eventos.csproj|c:\\users\\loq\\documents\\6c\\serviciosweb\\sistema-eventos-proyecto\\sistema-eventos\\models\\enums.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{8C21B4CE-6219-4108-8463-99AB45E51E0B}|Sistema-Eventos.csproj|solutionrelative:models\\enums.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -87,20 +107,8 @@
       "RelativeMoniker": "D:0:0:{8C21B4CE-6219-4108-8463-99AB45E51E0B}|Sistema-Eventos.csproj|solutionrelative:properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8C21B4CE-6219-4108-8463-99AB45E51E0B}|Sistema-Eventos.csproj|c:\\users\\loq\\documents\\6c\\serviciosweb\\sistema-eventos-proyecto\\sistema-eventos\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8C21B4CE-6219-4108-8463-99AB45E51E0B}|Sistema-Eventos.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8C21B4CE-6219-4108-8463-99AB45E51E0B}|Sistema-Eventos.csproj|c:\\users\\loq\\documents\\6c\\serviciosweb\\sistema-eventos-proyecto\\sistema-eventos\\repositories\\interfaces\\ireservationrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8C21B4CE-6219-4108-8463-99AB45E51E0B}|Sistema-Eventos.csproj|solutionrelative:repositories\\interfaces\\ireservationrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{8C21B4CE-6219-4108-8463-99AB45E51E0B}|Sistema-Eventos.csproj|c:\\users\\loq\\documents\\6c\\serviciosweb\\sistema-eventos-proyecto\\sistema-eventos\\repositories\\eventrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{8C21B4CE-6219-4108-8463-99AB45E51E0B}|Sistema-Eventos.csproj|solutionrelative:repositories\\eventrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8C21B4CE-6219-4108-8463-99AB45E51E0B}|Sistema-Eventos.csproj|c:\\users\\loq\\documents\\6c\\serviciosweb\\sistema-eventos-proyecto\\sistema-eventos\\repositories\\reservationrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8C21B4CE-6219-4108-8463-99AB45E51E0B}|Sistema-Eventos.csproj|solutionrelative:repositories\\reservationrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{8C21B4CE-6219-4108-8463-99AB45E51E0B}|Sistema-Eventos.csproj|c:\\users\\loq\\documents\\6c\\serviciosweb\\sistema-eventos-proyecto\\sistema-eventos\\services\\interfaces\\ieventservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -158,76 +166,49 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 8,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 21,
+              "DocumentIndex": 0,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\LOQ\\Documents\\6C\\ServiciosWeb\\Sistema-Eventos-Proyecto\\Sistema-Eventos\\Program.cs",
               "RelativeDocumentMoniker": "Program.cs",
               "ToolTip": "C:\\Users\\LOQ\\Documents\\6C\\ServiciosWeb\\Sistema-Eventos-Proyecto\\Sistema-Eventos\\Program.cs",
               "RelativeToolTip": "Program.cs",
-              "ViewState": "AgIAAB4AAAAAAAAAAAAAAGkAAAAGAAAAAAAAAA==",
+              "ViewState": "AgIAAH4AAAAAAAAAAAAAAIcAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-11-28T03:42:25.368Z",
-              "IsPinned": true
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "User.cs",
-              "DocumentMoniker": "C:\\Users\\LOQ\\Documents\\6C\\ServiciosWeb\\Sistema-Eventos-Proyecto\\Sistema-Eventos\\Models\\User.cs",
-              "RelativeDocumentMoniker": "Models\\User.cs",
-              "ToolTip": "C:\\Users\\LOQ\\Documents\\6C\\ServiciosWeb\\Sistema-Eventos-Proyecto\\Sistema-Eventos\\Models\\User.cs",
-              "RelativeToolTip": "Models\\User.cs",
-              "ViewState": "AgIAABEAAAAAAAAAAAAqwCkAAAA8AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-08T03:20:54.652Z",
+              "IsPinned": true,
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "IAuthService.cs",
-              "DocumentMoniker": "C:\\Users\\LOQ\\Documents\\6C\\ServiciosWeb\\Sistema-Eventos-Proyecto\\Sistema-Eventos\\Services\\Interfaces\\IAuthService.cs",
-              "RelativeDocumentMoniker": "Services\\Interfaces\\IAuthService.cs",
-              "ToolTip": "C:\\Users\\LOQ\\Documents\\6C\\ServiciosWeb\\Sistema-Eventos-Proyecto\\Sistema-Eventos\\Services\\Interfaces\\IAuthService.cs",
-              "RelativeToolTip": "Services\\Interfaces\\IAuthService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAABKAAAAAAAAAA==",
+              "DocumentIndex": 1,
+              "Title": "ReservationReminderWorker.cs",
+              "DocumentMoniker": "C:\\Users\\LOQ\\Documents\\6C\\ServiciosWeb\\Sistema-Eventos-Proyecto\\Sistema-Eventos\\Workers\\ReservationReminderWorker.cs",
+              "RelativeDocumentMoniker": "Workers\\ReservationReminderWorker.cs",
+              "ToolTip": "C:\\Users\\LOQ\\Documents\\6C\\ServiciosWeb\\Sistema-Eventos-Proyecto\\Sistema-Eventos\\Workers\\ReservationReminderWorker.cs",
+              "RelativeToolTip": "Workers\\ReservationReminderWorker.cs",
+              "ViewState": "AgIAACYAAAAAAAAAAAA3wEoAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-07T02:48:06.876Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-12T18:36:53.405Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "AuthService.cs",
-              "DocumentMoniker": "C:\\Users\\LOQ\\Documents\\6C\\ServiciosWeb\\Sistema-Eventos-Proyecto\\Sistema-Eventos\\Services\\AuthService.cs",
-              "RelativeDocumentMoniker": "Services\\AuthService.cs",
-              "ToolTip": "C:\\Users\\LOQ\\Documents\\6C\\ServiciosWeb\\Sistema-Eventos-Proyecto\\Sistema-Eventos\\Services\\AuthService.cs",
-              "RelativeToolTip": "Services\\AuthService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAMoAAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-07T02:48:03.252Z",
-              "EditorCaption": ""
+              "DocumentIndex": 2,
+              "Title": "Sistema-Eventos.csproj",
+              "DocumentMoniker": "C:\\Users\\LOQ\\Documents\\6C\\ServiciosWeb\\Sistema-Eventos-Proyecto\\Sistema-Eventos\\Sistema-Eventos.csproj",
+              "RelativeDocumentMoniker": "Sistema-Eventos.csproj",
+              "ToolTip": "C:\\Users\\LOQ\\Documents\\6C\\ServiciosWeb\\Sistema-Eventos-Proyecto\\Sistema-Eventos\\Sistema-Eventos.csproj",
+              "RelativeToolTip": "Sistema-Eventos.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-12-12T18:36:10.89Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "AuthController.cs",
-              "DocumentMoniker": "C:\\Users\\LOQ\\Documents\\6C\\ServiciosWeb\\Sistema-Eventos-Proyecto\\Sistema-Eventos\\Controllers\\AuthController.cs",
-              "RelativeDocumentMoniker": "Controllers\\AuthController.cs",
-              "ToolTip": "C:\\Users\\LOQ\\Documents\\6C\\ServiciosWeb\\Sistema-Eventos-Proyecto\\Sistema-Eventos\\Controllers\\AuthController.cs",
-              "RelativeToolTip": "Controllers\\AuthController.cs",
-              "ViewState": "AgIAACkAAAAAAAAAAAA7wEsAAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-07T02:52:01.965Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 8,
               "Title": "Notification.cs",
               "DocumentMoniker": "C:\\Users\\LOQ\\Documents\\6C\\ServiciosWeb\\Sistema-Eventos-Proyecto\\Sistema-Eventos\\Models\\Notification.cs",
               "RelativeDocumentMoniker": "Models\\Notification.cs",
@@ -235,12 +216,11 @@
               "RelativeToolTip": "Models\\Notification.cs",
               "ViewState": "AgIAAAUAAAAAAAAAAADwvx0AAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-08T03:20:00.994Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-08T03:20:00.994Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 7,
               "Title": "EventService.cs",
               "DocumentMoniker": "C:\\Users\\LOQ\\Documents\\6C\\ServiciosWeb\\Sistema-Eventos-Proyecto\\Sistema-Eventos\\Services\\EventService.cs",
               "RelativeDocumentMoniker": "Services\\EventService.cs",
@@ -248,12 +228,11 @@
               "RelativeToolTip": "Services\\EventService.cs",
               "ViewState": "AgIAAIYAAAAAAAAAAAAowIoAAAARAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-28T04:22:29.323Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-28T04:22:29.323Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 6,
               "Title": "EventDtos.cs",
               "DocumentMoniker": "C:\\Users\\LOQ\\Documents\\6C\\ServiciosWeb\\Sistema-Eventos-Proyecto\\Sistema-Eventos\\DTOs\\EventDtos.cs",
               "RelativeDocumentMoniker": "DTOs\\EventDtos.cs",
@@ -261,12 +240,11 @@
               "RelativeToolTip": "DTOs\\EventDtos.cs",
               "ViewState": "AgIAADYAAAAAAAAAAAA1wDYAAAAsAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-28T04:28:36.067Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-28T04:28:36.067Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 5,
               "Title": "Enums.cs",
               "DocumentMoniker": "C:\\Users\\LOQ\\Documents\\6C\\ServiciosWeb\\Sistema-Eventos-Proyecto\\Sistema-Eventos\\Models\\Enums.cs",
               "RelativeDocumentMoniker": "Models\\Enums.cs",
@@ -274,12 +252,83 @@
               "RelativeToolTip": "Models\\Enums.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAACYAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-07T03:15:19.952Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-07T03:15:19.952Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "IReservationRepository.cs",
+              "DocumentMoniker": "C:\\Users\\LOQ\\Documents\\6C\\ServiciosWeb\\Sistema-Eventos-Proyecto\\Sistema-Eventos\\Repositories\\Interfaces\\IReservationRepository.cs",
+              "RelativeDocumentMoniker": "Repositories\\Interfaces\\IReservationRepository.cs",
+              "ToolTip": "C:\\Users\\LOQ\\Documents\\6C\\ServiciosWeb\\Sistema-Eventos-Proyecto\\Sistema-Eventos\\Repositories\\Interfaces\\IReservationRepository.cs",
+              "RelativeToolTip": "Repositories\\Interfaces\\IReservationRepository.cs",
+              "ViewState": "AgIAAAwAAAAAAAAAAAA1wBIAAABoAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-11T17:53:50.69Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "ReservationRepository.cs",
+              "DocumentMoniker": "C:\\Users\\LOQ\\Documents\\6C\\ServiciosWeb\\Sistema-Eventos-Proyecto\\Sistema-Eventos\\Repositories\\ReservationRepository.cs",
+              "RelativeDocumentMoniker": "Repositories\\ReservationRepository.cs",
+              "ToolTip": "C:\\Users\\LOQ\\Documents\\6C\\ServiciosWeb\\Sistema-Eventos-Proyecto\\Sistema-Eventos\\Repositories\\ReservationRepository.cs",
+              "RelativeToolTip": "Repositories\\ReservationRepository.cs",
+              "ViewState": "AgIAACIAAAAAAAAAAAAYwEoAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-11T17:56:47.833Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "AuthController.cs",
+              "DocumentMoniker": "C:\\Users\\LOQ\\Documents\\6C\\ServiciosWeb\\Sistema-Eventos-Proyecto\\Sistema-Eventos\\Controllers\\AuthController.cs",
+              "RelativeDocumentMoniker": "Controllers\\AuthController.cs",
+              "ToolTip": "C:\\Users\\LOQ\\Documents\\6C\\ServiciosWeb\\Sistema-Eventos-Proyecto\\Sistema-Eventos\\Controllers\\AuthController.cs",
+              "RelativeToolTip": "Controllers\\AuthController.cs",
+              "ViewState": "AgIAACkAAAAAAAAAAAA7wEsAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-07T02:52:01.965Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "AuthService.cs",
+              "DocumentMoniker": "C:\\Users\\LOQ\\Documents\\6C\\ServiciosWeb\\Sistema-Eventos-Proyecto\\Sistema-Eventos\\Services\\AuthService.cs",
+              "RelativeDocumentMoniker": "Services\\AuthService.cs",
+              "ToolTip": "C:\\Users\\LOQ\\Documents\\6C\\ServiciosWeb\\Sistema-Eventos-Proyecto\\Sistema-Eventos\\Services\\AuthService.cs",
+              "RelativeToolTip": "Services\\AuthService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAMoAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-07T02:48:03.252Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 11,
+              "Title": "IAuthService.cs",
+              "DocumentMoniker": "C:\\Users\\LOQ\\Documents\\6C\\ServiciosWeb\\Sistema-Eventos-Proyecto\\Sistema-Eventos\\Services\\Interfaces\\IAuthService.cs",
+              "RelativeDocumentMoniker": "Services\\Interfaces\\IAuthService.cs",
+              "ToolTip": "C:\\Users\\LOQ\\Documents\\6C\\ServiciosWeb\\Sistema-Eventos-Proyecto\\Sistema-Eventos\\Services\\Interfaces\\IAuthService.cs",
+              "RelativeToolTip": "Services\\Interfaces\\IAuthService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAABKAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-07T02:48:06.876Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "User.cs",
+              "DocumentMoniker": "C:\\Users\\LOQ\\Documents\\6C\\ServiciosWeb\\Sistema-Eventos-Proyecto\\Sistema-Eventos\\Models\\User.cs",
+              "RelativeDocumentMoniker": "Models\\User.cs",
+              "ToolTip": "C:\\Users\\LOQ\\Documents\\6C\\ServiciosWeb\\Sistema-Eventos-Proyecto\\Sistema-Eventos\\Models\\User.cs",
+              "RelativeToolTip": "Models\\User.cs",
+              "ViewState": "AgIAABEAAAAAAAAAAAAqwCkAAAA8AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-08T03:20:54.652Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
               "Title": "ReportsController.cs",
               "DocumentMoniker": "C:\\Users\\LOQ\\Documents\\6C\\ServiciosWeb\\Sistema-Eventos-Proyecto\\Sistema-Eventos\\Controllers\\ReportsController.cs",
               "RelativeDocumentMoniker": "Controllers\\ReportsController.cs",
@@ -287,12 +336,11 @@
               "RelativeToolTip": "Controllers\\ReportsController.cs",
               "ViewState": "AgIAABsAAAAAAAAAAAAiwC8AAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-12T17:05:06.925Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-12T17:05:06.925Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 15,
               "Title": "UserRepository.cs",
               "DocumentMoniker": "C:\\Users\\LOQ\\Documents\\6C\\ServiciosWeb\\Sistema-Eventos-Proyecto\\Sistema-Eventos\\Repositories\\UserRepository.cs",
               "RelativeDocumentMoniker": "Repositories\\UserRepository.cs",
@@ -300,12 +348,11 @@
               "RelativeToolTip": "Repositories\\UserRepository.cs",
               "ViewState": "AgIAAAYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-12T17:25:02.601Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-12T17:25:02.601Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 12,
               "Title": "TokenRequestDto.cs",
               "DocumentMoniker": "C:\\Users\\LOQ\\Documents\\6C\\ServiciosWeb\\Sistema-Eventos-Proyecto\\Sistema-Eventos\\DTOs\\TokenRequestDto.cs",
               "RelativeDocumentMoniker": "DTOs\\TokenRequestDto.cs",
@@ -313,12 +360,11 @@
               "RelativeToolTip": "DTOs\\TokenRequestDto.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-12T17:35:58.58Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-12T17:35:58.58Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 21,
               "Title": "UserService.cs",
               "DocumentMoniker": "C:\\Users\\LOQ\\Documents\\6C\\ServiciosWeb\\Sistema-Eventos-Proyecto\\Sistema-Eventos\\Services\\UserService.cs",
               "RelativeDocumentMoniker": "Services\\UserService.cs",
@@ -326,12 +372,11 @@
               "RelativeToolTip": "Services\\UserService.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAGEAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-28T03:59:18.422Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-28T03:59:18.422Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 13,
               "Title": "AuthResponseDto.cs",
               "DocumentMoniker": "C:\\Users\\LOQ\\Documents\\6C\\ServiciosWeb\\Sistema-Eventos-Proyecto\\Sistema-Eventos\\DTOs\\AuthResponseDto.cs",
               "RelativeDocumentMoniker": "DTOs\\AuthResponseDto.cs",
@@ -339,12 +384,11 @@
               "RelativeToolTip": "DTOs\\AuthResponseDto.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAABAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-07T02:47:24.922Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-07T02:47:24.922Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
+              "DocumentIndex": 22,
               "Title": "IUserService.cs",
               "DocumentMoniker": "C:\\Users\\LOQ\\Documents\\6C\\ServiciosWeb\\Sistema-Eventos-Proyecto\\Sistema-Eventos\\Services\\Interfaces\\IUserService.cs",
               "RelativeDocumentMoniker": "Services\\Interfaces\\IUserService.cs",
@@ -352,12 +396,11 @@
               "RelativeToolTip": "Services\\Interfaces\\IUserService.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAABEAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-28T03:58:53.061Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-28T03:58:53.061Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 20,
               "Title": "UsersController.cs",
               "DocumentMoniker": "C:\\Users\\LOQ\\Documents\\6C\\ServiciosWeb\\Sistema-Eventos-Proyecto\\Sistema-Eventos\\Controllers\\UsersController.cs",
               "RelativeDocumentMoniker": "Controllers\\UsersController.cs",
@@ -365,12 +408,11 @@
               "RelativeToolTip": "Controllers\\UsersController.cs",
               "ViewState": "AgIAAD0AAAAAAAAAAAAowFQAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-28T03:59:52.172Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-28T03:59:52.172Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 18,
               "Title": "IReportService.cs",
               "DocumentMoniker": "C:\\Users\\LOQ\\Documents\\6C\\ServiciosWeb\\Sistema-Eventos-Proyecto\\Sistema-Eventos\\Services\\Interfaces\\IReportService.cs",
               "RelativeDocumentMoniker": "Services\\Interfaces\\IReportService.cs",
@@ -378,12 +420,11 @@
               "RelativeToolTip": "Services\\Interfaces\\IReportService.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAA9AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-12T17:04:01.957Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-12T17:04:01.957Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 17,
               "Title": "ReportService.cs",
               "DocumentMoniker": "C:\\Users\\LOQ\\Documents\\6C\\ServiciosWeb\\Sistema-Eventos-Proyecto\\Sistema-Eventos\\Services\\ReportService.cs",
               "RelativeDocumentMoniker": "Services\\ReportService.cs",
@@ -391,12 +432,11 @@
               "RelativeToolTip": "Services\\ReportService.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAADAAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-12T17:04:26.016Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-12T17:04:26.016Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
+              "DocumentIndex": 23,
               "Title": "UserDtos.cs",
               "DocumentMoniker": "C:\\Users\\LOQ\\Documents\\6C\\ServiciosWeb\\Sistema-Eventos-Proyecto\\Sistema-Eventos\\DTOs\\UserDtos.cs",
               "RelativeDocumentMoniker": "DTOs\\UserDtos.cs",
@@ -404,12 +444,11 @@
               "RelativeToolTip": "DTOs\\UserDtos.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAqAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-28T03:58:19.361Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-28T03:58:19.361Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 19,
               "Title": "ReservationService.cs",
               "DocumentMoniker": "C:\\Users\\LOQ\\Documents\\6C\\ServiciosWeb\\Sistema-Eventos-Proyecto\\Sistema-Eventos\\Services\\ReservationService.cs",
               "RelativeDocumentMoniker": "Services\\ReservationService.cs",
@@ -417,12 +456,11 @@
               "RelativeToolTip": "Services\\ReservationService.cs",
               "ViewState": "AgIAADcAAAAAAAAAAADwv0EAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-11T17:26:48.671Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-11T17:26:48.671Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 19,
+              "DocumentIndex": 24,
               "Title": "EventsController.cs",
               "DocumentMoniker": "C:\\Users\\LOQ\\Documents\\6C\\ServiciosWeb\\Sistema-Eventos-Proyecto\\Sistema-Eventos\\Controllers\\EventsController.cs",
               "RelativeDocumentMoniker": "Controllers\\EventsController.cs",
@@ -430,12 +468,11 @@
               "RelativeToolTip": "Controllers\\EventsController.cs",
               "ViewState": "AgIAAIcAAAAAAAAAAAAQwK4AAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-28T04:26:25.8Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-28T04:26:25.8Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 20,
+              "DocumentIndex": 25,
               "Title": "launchSettings.json",
               "DocumentMoniker": "C:\\Users\\LOQ\\Documents\\6C\\ServiciosWeb\\Sistema-Eventos-Proyecto\\Sistema-Eventos\\Properties\\launchSettings.json",
               "RelativeDocumentMoniker": "Properties\\launchSettings.json",
@@ -443,12 +480,11 @@
               "RelativeToolTip": "Properties\\launchSettings.json",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAAAgAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-12-11T21:03:18.622Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-11T21:03:18.622Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 32,
+              "DocumentIndex": 34,
               "Title": "ExternalDtos.cs",
               "DocumentMoniker": "C:\\Users\\LOQ\\Documents\\6C\\ServiciosWeb\\Sistema-Eventos-Proyecto\\Sistema-Eventos\\DTOs\\ExternalDtos.cs",
               "RelativeDocumentMoniker": "DTOs\\ExternalDtos.cs",
@@ -460,31 +496,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 22,
-              "Title": "IReservationRepository.cs",
-              "DocumentMoniker": "C:\\Users\\LOQ\\Documents\\6C\\ServiciosWeb\\Sistema-Eventos-Proyecto\\Sistema-Eventos\\Repositories\\Interfaces\\IReservationRepository.cs",
-              "RelativeDocumentMoniker": "Repositories\\Interfaces\\IReservationRepository.cs",
-              "ToolTip": "C:\\Users\\LOQ\\Documents\\6C\\ServiciosWeb\\Sistema-Eventos-Proyecto\\Sistema-Eventos\\Repositories\\Interfaces\\IReservationRepository.cs",
-              "RelativeToolTip": "Repositories\\Interfaces\\IReservationRepository.cs",
-              "ViewState": "AgIAAAwAAAAAAAAAAAAYwA8AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-11T17:53:50.69Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 24,
-              "Title": "ReservationRepository.cs",
-              "DocumentMoniker": "C:\\Users\\LOQ\\Documents\\6C\\ServiciosWeb\\Sistema-Eventos-Proyecto\\Sistema-Eventos\\Repositories\\ReservationRepository.cs",
-              "RelativeDocumentMoniker": "Repositories\\ReservationRepository.cs",
-              "ToolTip": "C:\\Users\\LOQ\\Documents\\6C\\ServiciosWeb\\Sistema-Eventos-Proyecto\\Sistema-Eventos\\Repositories\\ReservationRepository.cs",
-              "RelativeToolTip": "Repositories\\ReservationRepository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAADEAAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-11T17:56:47.833Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 23,
+              "DocumentIndex": 26,
               "Title": "EventRepository.cs",
               "DocumentMoniker": "C:\\Users\\LOQ\\Documents\\6C\\ServiciosWeb\\Sistema-Eventos-Proyecto\\Sistema-Eventos\\Repositories\\EventRepository.cs",
               "RelativeDocumentMoniker": "Repositories\\EventRepository.cs",
@@ -496,7 +508,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 26,
+              "DocumentIndex": 28,
               "Title": "WeatherService.cs",
               "DocumentMoniker": "C:\\Users\\LOQ\\Documents\\6C\\ServiciosWeb\\Sistema-Eventos-Proyecto\\Sistema-Eventos\\Services\\WeatherService.cs",
               "RelativeDocumentMoniker": "Services\\WeatherService.cs",
@@ -508,7 +520,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 25,
+              "DocumentIndex": 27,
               "Title": "IEventService.cs",
               "DocumentMoniker": "C:\\Users\\LOQ\\Documents\\6C\\ServiciosWeb\\Sistema-Eventos-Proyecto\\Sistema-Eventos\\Services\\Interfaces\\IEventService.cs",
               "RelativeDocumentMoniker": "Services\\Interfaces\\IEventService.cs",
@@ -520,7 +532,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 30,
+              "DocumentIndex": 32,
               "Title": "ReservationDtos.cs",
               "DocumentMoniker": "C:\\Users\\LOQ\\Documents\\6C\\ServiciosWeb\\Sistema-Eventos-Proyecto\\Sistema-Eventos\\DTOs\\ReservationDtos.cs",
               "RelativeDocumentMoniker": "DTOs\\ReservationDtos.cs",
@@ -532,7 +544,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 28,
+              "DocumentIndex": 30,
               "Title": "Event.cs",
               "DocumentMoniker": "C:\\Users\\LOQ\\Documents\\6C\\ServiciosWeb\\Sistema-Eventos-Proyecto\\Sistema-Eventos\\Models\\Event.cs",
               "RelativeDocumentMoniker": "Models\\Event.cs",
@@ -544,7 +556,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 27,
+              "DocumentIndex": 29,
               "Title": "Reservation.cs",
               "DocumentMoniker": "C:\\Users\\LOQ\\Documents\\6C\\ServiciosWeb\\Sistema-Eventos-Proyecto\\Sistema-Eventos\\Models\\Reservation.cs",
               "RelativeDocumentMoniker": "Models\\Reservation.cs",
@@ -556,7 +568,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 31,
+              "DocumentIndex": 33,
               "Title": "ForgotPasswordDto.cs",
               "DocumentMoniker": "C:\\Users\\LOQ\\Documents\\6C\\ServiciosWeb\\Sistema-Eventos-Proyecto\\Sistema-Eventos\\DTOs\\ForgotPasswordDto.cs",
               "RelativeDocumentMoniker": "DTOs\\ForgotPasswordDto.cs",
@@ -568,7 +580,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 29,
+              "DocumentIndex": 31,
               "Title": "ResetPasswordDto.cs",
               "DocumentMoniker": "C:\\Users\\LOQ\\Documents\\6C\\ServiciosWeb\\Sistema-Eventos-Proyecto\\Sistema-Eventos\\DTOs\\ResetPasswordDto.cs",
               "RelativeDocumentMoniker": "DTOs\\ResetPasswordDto.cs",
@@ -580,7 +592,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 33,
+              "DocumentIndex": 35,
               "Title": "appsettings.json",
               "DocumentMoniker": "C:\\Users\\LOQ\\Documents\\6C\\ServiciosWeb\\Sistema-Eventos-Proyecto\\Sistema-Eventos\\appsettings.json",
               "RelativeDocumentMoniker": "appsettings.json",
@@ -592,7 +604,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 34,
+              "DocumentIndex": 36,
               "Title": "GeoService.cs",
               "DocumentMoniker": "C:\\Users\\LOQ\\Documents\\6C\\ServiciosWeb\\Sistema-Eventos-Proyecto\\Sistema-Eventos\\Services\\GeoService.cs",
               "RelativeDocumentMoniker": "Services\\GeoService.cs",
@@ -604,7 +616,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 35,
+              "DocumentIndex": 37,
               "Title": "IGeoService.cs",
               "DocumentMoniker": "C:\\Users\\LOQ\\Documents\\6C\\ServiciosWeb\\Sistema-Eventos-Proyecto\\Sistema-Eventos\\Services\\Interfaces\\IGeoService.cs",
               "RelativeDocumentMoniker": "Services\\Interfaces\\IGeoService.cs",
@@ -616,7 +628,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 36,
+              "DocumentIndex": 38,
               "Title": "IWeatherService.cs",
               "DocumentMoniker": "C:\\Users\\LOQ\\Documents\\6C\\ServiciosWeb\\Sistema-Eventos-Proyecto\\Sistema-Eventos\\Services\\Interfaces\\IWeatherService.cs",
               "RelativeDocumentMoniker": "Services\\Interfaces\\IWeatherService.cs",

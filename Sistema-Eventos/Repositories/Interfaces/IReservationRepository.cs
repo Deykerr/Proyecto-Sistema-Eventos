@@ -16,5 +16,6 @@ namespace Sistema_Eventos.Repositories.Interfaces
 
         Task AddAsync(Reservation reservation);
         Task UpdateAsync(Reservation reservation);
+        Task<List<Reservation>> GetConfirmedReservationsForDateRangeAsync(DateTime start, DateTime end);
     }
 }

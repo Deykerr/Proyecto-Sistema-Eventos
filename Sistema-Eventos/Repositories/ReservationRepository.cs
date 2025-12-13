@@ -60,5 +60,18 @@ namespace Sistema_Eventos.Repositories
             _context.Reservations.Update(reservation);
             await _context.SaveChangesAsync();
         }
+
+        public async Task<List<Reservation>> GetConfirmedReservationsForDateRangeAsync(DateTime start, DateTime end)
+        {
+            return await _context.Reservations
+                .Include(r => r.Event) // Necesitamos el título del evento
+                .Include(r => r.User)  // Necesitamos el nombre del usuario
+                .Where(r => r.Status == ReservationStatus.Confirmed
+                         && r.Event != null
+                         && r.Event.Status == EventStatus.Published
+                         && r.Event.StartDate >= start
+                         && r.Event.StartDate <= end)
+                .ToListAsync();
+        }
     }
 }

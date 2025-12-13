@@ -8,6 +8,8 @@ using Sistema_Eventos.Repositories;
 using Sistema_Eventos.Repositories.Interfaces;
 using Sistema_Eventos.Services;
 using Sistema_Eventos.Services.Interfaces;
+using System.Threading.RateLimiting; // Necesario para la lógica del limitador
+using Microsoft.AspNetCore.RateLimiting; // Necesario para el Middleware
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -75,6 +77,10 @@ builder.Services.AddScoped<IGeoService, GeoService>();
 builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddScoped<IAuthService, AuthService>();
 builder.Services.AddScoped<INotificationRepository, NotificationRepository>();
+// Registrar el Background Worker
+builder.Services.AddHostedService<Sistema_Eventos.Workers.ReservationReminderWorker>();
+
+
 
 builder.Services.AddCors(options =>
 {
@@ -106,6 +112,26 @@ builder.Services.AddAuthentication(x =>
     };
 });
 
+// --- RNF01: Rate Limiting (Seguridad) ---
+builder.Services.AddRateLimiter(options =>
+{
+    // Si se pasa del límite, devolvemos error 429 (Too Many Requests)
+    options.RejectionStatusCode = StatusCodes.Status429TooManyRequests;
+
+    // Configuración Global: Se aplica a TODAS las rutas
+    options.GlobalLimiter = PartitionedRateLimiter.Create<HttpContext, string>(httpContext =>
+        RateLimitPartition.GetFixedWindowLimiter(
+            // Usamos la IP como "clave" para particionar. Si no hay IP, usamos "unknown"
+            partitionKey: httpContext.Connection.RemoteIpAddress?.ToString() ?? "unknown",
+            factory: partition => new FixedWindowRateLimiterOptions
+            {
+                AutoReplenishment = true,
+                PermitLimit = 100,    // Máximo 100 peticiones 
+                Window = TimeSpan.FromMinutes(1), // En una ventana de 1 minuto 
+                QueueLimit = 0,       // No encolamos peticiones extra, las rechazamos directo
+            }));
+});
+
 var app = builder.Build();
 
 // --- 2. PIPELINE DE PETICIONES HTTP ---
@@ -119,6 +145,7 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 
 app.UseCors("NuevaPolitica");
+app.UseRateLimiter();
 
 // El orden es CRÍTICO aquí:
 app.UseAuthentication(); // 1. ¿Quién eres?
